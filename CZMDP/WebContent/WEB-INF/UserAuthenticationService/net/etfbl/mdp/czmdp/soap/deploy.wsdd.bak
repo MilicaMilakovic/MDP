@@ -1,0 +1,37 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from UserAuthenticationService WSDL service -->
+
+  <service name="UserAuthentication" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://soap.czmdp.mdp.etfbl.net"/>
+      <parameter name="wsdlServiceElement" value="UserAuthenticationService"/>
+      <parameter name="schemaQualified" value="http://soap.czmdp.mdp.etfbl.net,http://model.mdp.etfbl.net"/>
+      <parameter name="wsdlServicePort" value="UserAuthentication"/>
+      <parameter name="className" value="net.etfbl.mdp.czmdp.soap.UserAuthenticationSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="UserAuthentication"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="verify" qname="operNS:verify" xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" returnQName="retNS:verifyReturn" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:user" xmlns:pns="http://soap.czmdp.mdp.etfbl.net" type="tns:User" xmlns:tns="http://model.mdp.etfbl.net"/>
+      </operation>
+      <parameter name="allowedMethods" value="verify"/>
+
+      <typeMapping
+        xmlns:ns="http://model.mdp.etfbl.net"
+        qname="ns:User"
+        type="java:net.etfbl.mdp.model.User"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

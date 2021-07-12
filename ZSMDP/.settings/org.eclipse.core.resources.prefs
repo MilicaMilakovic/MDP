@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/net/etfbl/mdp/czmdp/soap/UserAuthentication.java=UTF-8
+encoding//src/net/etfbl/mdp/czmdp/soap/UserAuthenticationService.java=UTF-8
+encoding//src/net/etfbl/mdp/czmdp/soap/UserAuthenticationServiceLocator.java=UTF-8
+encoding//src/net/etfbl/mdp/czmdp/soap/UserAuthenticationSoapBindingStub.java=UTF-8
+encoding//src/net/etfbl/mdp/model/User.java=UTF-8
