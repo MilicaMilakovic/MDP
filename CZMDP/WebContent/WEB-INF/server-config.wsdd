@@ -32,10 +32,31 @@
   <ns1:parameter name="allowedMethods" value="getVersion"/>
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
- <ns1:service name="UserAuthentication" provider="java:RPC" style="wrapped" use="literal">
+ <ns1:service name="UserService" provider="java:RPC" style="wrapped" use="literal">
   <ns2:operation name="verify" qname="ns1:verify" returnQName="ns1:verifyReturn" returnType="xsd:boolean" soapAction="" xmlns:ns1="http://soap.czmdp.mdp.etfbl.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
    <ns3:parameter qname="ns1:user" type="ns2:User" xmlns:ns2="http://model.mdp.etfbl.net" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
   </ns2:operation>
+  <ns1:operation name="registerLogin" qname="ns3:registerLogin" soapAction="" xmlns:ns3="http://soap.czmdp.mdp.etfbl.net">
+   <ns1:parameter qname="ns3:user" type="ns4:User" xmlns:ns4="http://model.mdp.etfbl.net"/>
+  </ns1:operation>
+  <ns1:operation name="getOnlineUsers" qname="ns5:getOnlineUsers" returnQName="ns5:getOnlineUsersReturn" returnType="ns6:User" soapAction="" xmlns:ns5="http://soap.czmdp.mdp.etfbl.net" xmlns:ns6="http://model.mdp.etfbl.net"/>
+  <ns1:operation name="registerLogout" qname="ns7:registerLogout" soapAction="" xmlns:ns7="http://soap.czmdp.mdp.etfbl.net">
+   <ns1:parameter qname="ns7:user" type="ns8:User" xmlns:ns8="http://model.mdp.etfbl.net"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="verify registerLogout getOnlineUsers registerLogin"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="UserService"/>
+  <ns1:parameter name="className" value="net.etfbl.mdp.czmdp.soap.UserService"/>
+  <ns1:parameter name="wsdlServicePort" value="UserService"/>
+  <ns1:parameter name="schemaQualified" value="http://soap.czmdp.mdp.etfbl.net,http://model.mdp.etfbl.net"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://soap.czmdp.mdp.etfbl.net"/>
+  <ns1:parameter name="wsdlServiceElement" value="UserServiceService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns9:User" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.etfbl.mdp.model.User" xmlns:ns9="http://model.mdp.etfbl.net"/>
+ </ns1:service>
+ <ns1:service name="UserAuthentication" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="verify" qname="ns10:verify" returnQName="ns10:verifyReturn" returnType="xsd:boolean" soapAction="" xmlns:ns10="http://soap.czmdp.mdp.etfbl.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:user" type="ns11:User" xmlns:ns11="http://model.mdp.etfbl.net"/>
+  </ns1:operation>
   <ns1:parameter name="allowedMethods" value="verify"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="UserAuthentication"/>
@@ -44,7 +65,7 @@
   <ns1:parameter name="schemaQualified" value="http://soap.czmdp.mdp.etfbl.net,http://model.mdp.etfbl.net"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://soap.czmdp.mdp.etfbl.net"/>
   <ns1:parameter name="wsdlServiceElement" value="UserAuthenticationService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:User" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.etfbl.mdp.model.User" xmlns:ns3="http://model.mdp.etfbl.net"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns12:User" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.etfbl.mdp.model.User" xmlns:ns12="http://model.mdp.etfbl.net"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

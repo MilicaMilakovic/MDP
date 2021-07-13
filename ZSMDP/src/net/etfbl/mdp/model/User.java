@@ -29,6 +29,11 @@ public class User  implements java.io.Serializable {
            
            
     }
+    @Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", city=" + city + "]";
+	}
+
 
 
     /**
@@ -80,10 +85,7 @@ public class User  implements java.io.Serializable {
         return username;
     }
 
-    @Override
-	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", city=" + city + "]";
-	}
+
     /**
      * Sets the username value for this User.
      * 

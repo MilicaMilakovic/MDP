@@ -3,6 +3,7 @@ package net.etfbl.mdp.zsmdp.main;
 
 import java.beans.XMLEncoder;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
@@ -18,9 +19,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import net.etfbl.mdp.czmdp.soap.UserAuthentication;
-import net.etfbl.mdp.czmdp.soap.UserAuthenticationServiceLocator;
+import net.etfbl.mdp.czmdp.soap.UserService;
+import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
 import net.etfbl.mdp.model.User;
 
 public class LoginController implements Initializable {
@@ -61,11 +63,11 @@ public class LoginController implements Initializable {
 	   System.out.println(user);
 	   
 	   
-	   UserAuthenticationServiceLocator locator = new UserAuthenticationServiceLocator();
+	   UserServiceServiceLocator locator = new UserServiceServiceLocator();
 	   
 	   try {
 		   
-		UserAuthentication service = locator.getUserAuthentication();
+		UserService service = locator.getUserService();
 		
 		if(service.verify(user))
 			System.out.println("dobar");
@@ -74,11 +76,14 @@ public class LoginController implements Initializable {
 		
 		if(service.verify(user))
 		{
+			MainPageController.user = user;
+			
 			Stage primaryStage = new Stage();
 			Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
 			primaryStage.setTitle("ZSMDP");
+			primaryStage.getIcons().add(new Image(new FileInputStream(new File(Main.resources+File.separator+"icon.png"))));
 			primaryStage.setScene(new Scene(root,900,600));
-			
+						
 			primaryStage.show();
 			Stage stage = (Stage) button.getScene().getWindow();
 			stage.close();
@@ -95,6 +100,16 @@ public class LoginController implements Initializable {
 
 @Override
 public void initialize(URL location, ResourceBundle resources) {
+
+//	cities.setStyle(".combo-box .list-cell {\r\n"
+//			+ "     -fx-text-fill: white; "
+//			+ "-fx-mark-color :  #FFDA60;"
+//			+ "-fx-background-color: transparent;"
+//			+ "-fx-border-color: transparent transparent #ffffff transparent;\r\n"
+//			+ "}"
+//			+ " .combo-box  { -fx-text-fill: #ffffff}"
+//			);
+//	
 	
 	cities.getItems().add("Banjaluka");
 	cities.getItems().add("Bijeljina");

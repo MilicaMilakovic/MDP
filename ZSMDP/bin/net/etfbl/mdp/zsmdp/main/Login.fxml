@@ -1,19 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.zsmdp.main.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.zsmdp.main.LoginController">
    <children>
-      <Label layoutX="227.0" layoutY="79.0" text="username:" />
-      <TextField fx:id="username" layoutX="226.0" layoutY="104.0" />
-      <PasswordField fx:id="password" layoutX="226.0" layoutY="181.0" />
-      <Label layoutX="228.0" layoutY="154.0" text="password:" />
-      <Button fx:id="button" layoutX="277.0" layoutY="306.0" mnemonicParsing="false" onAction="#onClick" text="Login" />
-      <ChoiceBox fx:id="cities" layoutX="226.0" layoutY="243.0" prefWidth="150.0" />
+      <ImageView fitHeight="400.0" fitWidth="640.0" layoutX="-24.0" layoutY="6.0" opacity="0.46" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../MDP%20resursi/map3.PNG" />
+         </image>
+         <effect>
+            <GaussianBlur radius="1.75" />
+         </effect>
+      </ImageView>
+      <Rectangle height="325.0" layoutX="150.0" layoutY="38.0" opacity="0.8" stroke="#3e4042" strokeType="INSIDE" width="300.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.21904761904761905" startY="1.0">
+               <stops>
+                  <Stop color="#3e4042" />
+                  <Stop color="#ffda618e" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="121.81" radius="59.665" spread="0.14" width="118.85" />
+         </effect>
+      </Rectangle>
+      <TextField fx:id="username" layoutX="235.0" layoutY="80.0" prefHeight="31.0" prefWidth="160.0" promptText="Username" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-background-insets: 0,0 0 1 0; -fx-border-insets: 0 0 1 0; -fx-border-color: transparent transparent #ffffff transparent;">
+         <font>
+            <Font size="13.0" />
+         </font></TextField>
+      <PasswordField fx:id="password" layoutX="235.0" layoutY="141.0" prefHeight="31.0" prefWidth="160.0" promptText="Password" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: transparent transparent #ffffff transparent;">
+         <font>
+            <Font size="13.0" />
+         </font></PasswordField>
+      <Button fx:id="button" layoutX="220.0" layoutY="295.0" mnemonicParsing="false" onAction="#onClick" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: #FFDA60; -fx-border-radius: 0; -fx-background-radius: 0;" text="Login">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ChoiceBox fx:id="cities" layoutX="235.0" layoutY="209.0" prefHeight="31.0" prefWidth="160.0" style="-fx-background-radius: 0; -fx-border-color: transparent transparent #ffffff transparent; -fx-background-color: transparent; -fx-mark-color: #FFDA60;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ChoiceBox>
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="201.0" layoutY="83.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../MDP%20resursi/ikonice/user%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="26.0" layoutX="201.0" layoutY="144.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../MDP%20resursi/ikonice/closed.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="26.0" layoutX="207.0" layoutY="212.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../MDP%20resursi/ikonice/location-pin.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

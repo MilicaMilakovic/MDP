@@ -1,5 +1,5 @@
 /**
- * UserAuthenticationServiceLocator.java
+ * UserServiceServiceLocator.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
@@ -7,53 +7,53 @@
 
 package net.etfbl.mdp.czmdp.soap;
 
-public class UserAuthenticationServiceLocator extends org.apache.axis.client.Service implements net.etfbl.mdp.czmdp.soap.UserAuthenticationService {
+public class UserServiceServiceLocator extends org.apache.axis.client.Service implements net.etfbl.mdp.czmdp.soap.UserServiceService {
 
-    public UserAuthenticationServiceLocator() {
+    public UserServiceServiceLocator() {
     }
 
 
-    public UserAuthenticationServiceLocator(org.apache.axis.EngineConfiguration config) {
+    public UserServiceServiceLocator(org.apache.axis.EngineConfiguration config) {
         super(config);
     }
 
-    public UserAuthenticationServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
+    public UserServiceServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
         super(wsdlLoc, sName);
     }
 
-    // Use to get a proxy class for UserAuthentication
-    private java.lang.String UserAuthentication_address = "http://localhost:8080/CZMDP/services/UserAuthentication";
+    // Use to get a proxy class for UserService
+    private java.lang.String UserService_address = "http://localhost:8080/CZMDP/services/UserService";
 
-    public java.lang.String getUserAuthenticationAddress() {
-        return UserAuthentication_address;
+    public java.lang.String getUserServiceAddress() {
+        return UserService_address;
     }
 
     // The WSDD service name defaults to the port name.
-    private java.lang.String UserAuthenticationWSDDServiceName = "UserAuthentication";
+    private java.lang.String UserServiceWSDDServiceName = "UserService";
 
-    public java.lang.String getUserAuthenticationWSDDServiceName() {
-        return UserAuthenticationWSDDServiceName;
+    public java.lang.String getUserServiceWSDDServiceName() {
+        return UserServiceWSDDServiceName;
     }
 
-    public void setUserAuthenticationWSDDServiceName(java.lang.String name) {
-        UserAuthenticationWSDDServiceName = name;
+    public void setUserServiceWSDDServiceName(java.lang.String name) {
+        UserServiceWSDDServiceName = name;
     }
 
-    public net.etfbl.mdp.czmdp.soap.UserAuthentication getUserAuthentication() throws javax.xml.rpc.ServiceException {
+    public net.etfbl.mdp.czmdp.soap.UserService getUserService() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(UserAuthentication_address);
+            endpoint = new java.net.URL(UserService_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
         }
-        return getUserAuthentication(endpoint);
+        return getUserService(endpoint);
     }
 
-    public net.etfbl.mdp.czmdp.soap.UserAuthentication getUserAuthentication(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public net.etfbl.mdp.czmdp.soap.UserService getUserService(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            net.etfbl.mdp.czmdp.soap.UserAuthenticationSoapBindingStub _stub = new net.etfbl.mdp.czmdp.soap.UserAuthenticationSoapBindingStub(portAddress, this);
-            _stub.setPortName(getUserAuthenticationWSDDServiceName());
+            net.etfbl.mdp.czmdp.soap.UserServiceSoapBindingStub _stub = new net.etfbl.mdp.czmdp.soap.UserServiceSoapBindingStub(portAddress, this);
+            _stub.setPortName(getUserServiceWSDDServiceName());
             return _stub;
         }
         catch (org.apache.axis.AxisFault e) {
@@ -61,8 +61,8 @@ public class UserAuthenticationServiceLocator extends org.apache.axis.client.Ser
         }
     }
 
-    public void setUserAuthenticationEndpointAddress(java.lang.String address) {
-        UserAuthentication_address = address;
+    public void setUserServiceEndpointAddress(java.lang.String address) {
+        UserService_address = address;
     }
 
     /**
@@ -72,9 +72,9 @@ public class UserAuthenticationServiceLocator extends org.apache.axis.client.Ser
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (net.etfbl.mdp.czmdp.soap.UserAuthentication.class.isAssignableFrom(serviceEndpointInterface)) {
-                net.etfbl.mdp.czmdp.soap.UserAuthenticationSoapBindingStub _stub = new net.etfbl.mdp.czmdp.soap.UserAuthenticationSoapBindingStub(new java.net.URL(UserAuthentication_address), this);
-                _stub.setPortName(getUserAuthenticationWSDDServiceName());
+            if (net.etfbl.mdp.czmdp.soap.UserService.class.isAssignableFrom(serviceEndpointInterface)) {
+                net.etfbl.mdp.czmdp.soap.UserServiceSoapBindingStub _stub = new net.etfbl.mdp.czmdp.soap.UserServiceSoapBindingStub(new java.net.URL(UserService_address), this);
+                _stub.setPortName(getUserServiceWSDDServiceName());
                 return _stub;
             }
         }
@@ -94,8 +94,8 @@ public class UserAuthenticationServiceLocator extends org.apache.axis.client.Ser
             return getPort(serviceEndpointInterface);
         }
         java.lang.String inputPortName = portName.getLocalPart();
-        if ("UserAuthentication".equals(inputPortName)) {
-            return getUserAuthentication();
+        if ("UserService".equals(inputPortName)) {
+            return getUserService();
         }
         else  {
             java.rmi.Remote _stub = getPort(serviceEndpointInterface);
@@ -105,7 +105,7 @@ public class UserAuthenticationServiceLocator extends org.apache.axis.client.Ser
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://soap.czmdp.mdp.etfbl.net", "UserAuthenticationService");
+        return new javax.xml.namespace.QName("http://soap.czmdp.mdp.etfbl.net", "UserServiceService");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +113,7 @@ public class UserAuthenticationServiceLocator extends org.apache.axis.client.Ser
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://soap.czmdp.mdp.etfbl.net", "UserAuthentication"));
+            ports.add(new javax.xml.namespace.QName("http://soap.czmdp.mdp.etfbl.net", "UserService"));
         }
         return ports.iterator();
     }
@@ -123,8 +123,8 @@ public class UserAuthenticationServiceLocator extends org.apache.axis.client.Ser
     */
     public void setEndpointAddress(java.lang.String portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
         
-if ("UserAuthentication".equals(portName)) {
-            setUserAuthenticationEndpointAddress(address);
+if ("UserService".equals(portName)) {
+            setUserServiceEndpointAddress(address);
         }
         else 
 { // Unknown Port Name

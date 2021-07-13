@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from UserServiceService WSDL service -->
+
+  <service name="UserService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://soap.czmdp.mdp.etfbl.net"/>
+      <parameter name="wsdlServiceElement" value="UserServiceService"/>
+      <parameter name="schemaQualified" value="http://soap.czmdp.mdp.etfbl.net,http://model.mdp.etfbl.net"/>
+      <parameter name="wsdlServicePort" value="UserService"/>
+      <parameter name="className" value="net.etfbl.mdp.czmdp.soap.UserService"/>
+      <parameter name="wsdlPortType" value="UserService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="verify" qname="operNS:verify" returnQName="retNS:verifyReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://model.mdp.etfbl.net" qname="pns:user" type="tns:User"/>
+      </operation>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" name="registerLogin" qname="operNS:registerLogin" soapAction="">
+        <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://model.mdp.etfbl.net" qname="pns:user" type="tns:User"/>
+      </operation>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://model.mdp.etfbl.net" name="getOnlineUsers" qname="operNS:getOnlineUsers" returnQName="retNS:getOnlineUsersReturn" returnType="rtns:User" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" name="registerLogout" qname="operNS:registerLogout" soapAction="">
+        <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://model.mdp.etfbl.net" qname="pns:user" type="tns:User"/>
+      </operation>
+      <parameter name="allowedMethods" value="verify registerLogout getOnlineUsers registerLogin"/>
+
+      <typeMapping xmlns:ns="http://model.mdp.etfbl.net" qname="ns:User" type="java:net.etfbl.mdp.model.User" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
