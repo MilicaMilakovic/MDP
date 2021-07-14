@@ -6,9 +6,11 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
 import net.etfbl.mdp.model.User;
@@ -25,6 +27,35 @@ public class MainPageController implements Initializable {
 	public ChoiceBox<String> locations;
 	@FXML
 	public ChoiceBox<String> activeUsers;
+	@FXML
+	public Button logOutBtn;
+	
+	
+	public void showOnlineUsers(String city) {
+		User[] users = null;
+	
+		UserServiceServiceLocator locator = new UserServiceServiceLocator();
+		try {
+			UserService service = locator.getUserService();
+			users = service.getOnlineUsers();
+			
+			User u = service.getActiveUser(city);
+			
+			activeUsers.getItems().clear();
+			if(u != null)
+			{
+				//activeUsers.getItems().clear();
+				activeUsers.getItems().add(u.getUsername());
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	
+	}
+	
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -32,15 +63,16 @@ public class MainPageController implements Initializable {
 		username.setText(user.getUsername());
 		location.setText(user.getCity());
 		
-		User[] users = null;
+	
 		UserServiceServiceLocator locator = new UserServiceServiceLocator();
+		
 		try {
 			UserService service = locator.getUserService();
-			service.registerLogin(user);	
+			service.registerLogin(user);				
 			
-			users = service.getOnlineUsers();
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		locations.getItems().add("Banjaluka");
@@ -50,23 +82,28 @@ public class MainPageController implements Initializable {
 		locations.getItems().add("Trebinje");
 		
 		locations.getSelectionModel().select(Arrays.asList(Main.locations).indexOf(user.getCity()));
-		if(users!=null)
-		{
-			for(User u : users)
-			{
-				if(u.getCity().equals(user.getCity()))
-					activeUsers.getItems().add(u.getUsername());
-			}
-		}
+		activeUsers.getItems().clear();
 	
 	}
 	
 	public void locationSelected() {
 		String selectedCity = locations.getValue();
 		
-		System.out.println(selectedCity);
+		showOnlineUsers(selectedCity);
 	}
 	
-	
+	public void logOut() {
+		UserServiceServiceLocator locator = new UserServiceServiceLocator();
+		try {
+			UserService service = locator.getUserService();
+			service.registerLogout(user);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		Stage stage = (Stage)logOutBtn.getScene().getWindow();
+		stage.close();
+		
+	}
 	
 }

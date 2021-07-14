@@ -29,16 +29,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="registerLoginResponse">
     <complexType/>
    </element>
-   <element name="getOnlineUsers">
-    <complexType/>
-   </element>
-   <element name="getOnlineUsersResponse">
-    <complexType>
-     <sequence>
-      <element maxOccurs="unbounded" name="getOnlineUsersReturn" type="tns1:User"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="registerLogout">
     <complexType>
      <sequence>
@@ -48,6 +38,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    </element>
    <element name="registerLogoutResponse">
     <complexType/>
+   </element>
+   <element name="getActiveUser">
+    <complexType>
+     <sequence>
+      <element name="city" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getActiveUserResponse">
+    <complexType>
+     <sequence>
+      <element name="getActiveUserReturn" type="tns1:User"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOnlineUsers">
+    <complexType/>
+   </element>
+   <element name="getOnlineUsersResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getOnlineUsersReturn" type="tns1:User"/>
+     </sequence>
+    </complexType>
    </element>
   </schema>
   <schema elementFormDefault="qualified" targetNamespace="http://model.mdp.etfbl.net" xmlns="http://www.w3.org/2001/XMLSchema">
@@ -125,6 +139,22 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="getActiveUserRequest">
+
+      <wsdl:part element="impl:getActiveUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getActiveUserResponse">
+
+      <wsdl:part element="impl:getActiveUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:portType name="UserService">
 
       <wsdl:operation name="verify">
@@ -151,18 +181,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getOnlineUsers">
-
-         <wsdl:input message="impl:getOnlineUsersRequest" name="getOnlineUsersRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getOnlineUsersResponse" name="getOnlineUsersResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="registerLogout">
 
          <wsdl:input message="impl:registerLogoutRequest" name="registerLogoutRequest">
@@ -170,6 +188,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:registerLogoutResponse" name="registerLogoutResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getActiveUser">
+
+         <wsdl:input message="impl:getActiveUserRequest" name="getActiveUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getActiveUserResponse" name="getActiveUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOnlineUsers">
+
+         <wsdl:input message="impl:getOnlineUsersRequest" name="getOnlineUsersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOnlineUsersResponse" name="getOnlineUsersResponse">
 
        </wsdl:output>
 
@@ -217,24 +259,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getOnlineUsers">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getOnlineUsersRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getOnlineUsersResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="registerLogout">
 
          <wsdlsoap:operation soapAction=""/>
@@ -246,6 +270,42 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="registerLogoutResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getActiveUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getActiveUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getActiveUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOnlineUsers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOnlineUsersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOnlineUsersResponse">
 
             <wsdlsoap:body use="literal"/>
 

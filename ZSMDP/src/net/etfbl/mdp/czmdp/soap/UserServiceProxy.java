@@ -56,16 +56,22 @@ public class UserServiceProxy implements net.etfbl.mdp.czmdp.soap.UserService {
     userService.registerLogin(user);
   }
   
-  public net.etfbl.mdp.model.User[] getOnlineUsers() throws java.rmi.RemoteException{
-    if (userService == null)
-      _initUserServiceProxy();
-    return userService.getOnlineUsers();
-  }
-  
   public void registerLogout(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException{
     if (userService == null)
       _initUserServiceProxy();
     userService.registerLogout(user);
+  }
+  
+  public net.etfbl.mdp.model.User getActiveUser(java.lang.String city) throws java.rmi.RemoteException{
+    if (userService == null)
+      _initUserServiceProxy();
+    return userService.getActiveUser(city);
+  }
+  
+  public net.etfbl.mdp.model.User[] getOnlineUsers() throws java.rmi.RemoteException{
+    if (userService == null)
+      _initUserServiceProxy();
+    return userService.getOnlineUsers();
   }
   
   
