@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -74,8 +75,15 @@ public class LoginController implements Initializable {
 		else
 			System.out.println("nije dobro");
 		
+		
 		if(service.verify(user))
 		{
+			if(service.getOnlineUsers() != null && Arrays.asList(service.getOnlineUsers()).contains(user) )	{
+				
+				System.out.println("Korisnik vec prijavljen");
+				
+			} else{
+				
 			MainPageController.user = user;
 			
 			Stage primaryStage = new Stage();
@@ -87,7 +95,9 @@ public class LoginController implements Initializable {
 			primaryStage.show();
 			Stage stage = (Stage) button.getScene().getWindow();
 			stage.close();
+			}
 		}
+				
 		
 	} catch (Exception e) {
 		// TODO: handle exception

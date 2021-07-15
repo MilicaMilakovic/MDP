@@ -29,6 +29,11 @@ public class User  implements java.io.Serializable {
            
            
     }
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", city=" + city + "]";
+	}
+
 
     /**
      * Gets the city value for this User.

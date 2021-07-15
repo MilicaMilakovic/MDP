@@ -29,6 +29,8 @@ public class MainPageController implements Initializable {
 	public ChoiceBox<String> activeUsers;
 	@FXML
 	public Button logOutBtn;
+	@FXML
+	public Button schedule;
 	
 	
 	public void showOnlineUsers(String city) {
@@ -63,7 +65,7 @@ public class MainPageController implements Initializable {
 		username.setText(user.getUsername());
 		location.setText(user.getCity());
 		
-	
+		
 		UserServiceServiceLocator locator = new UserServiceServiceLocator();
 		
 		try {
