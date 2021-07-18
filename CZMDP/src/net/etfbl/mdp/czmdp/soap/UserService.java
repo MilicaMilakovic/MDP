@@ -17,12 +17,17 @@ public class UserService {
 	
 	public static final File file = new File("./resources");
 	public static final String users = file.getAbsolutePath()+File.separator+"users";
-	
+	public static int count;
+	private static int port = 9000;
+	// svi online korisnici
 	public static ArrayList<User> onlineUsers = new ArrayList<User>();
 	
-	// uraditi preko hes mape, grad- lista korisnika
+	// grad, korisnik
 	public static HashMap<String, User> activeUsers = new HashMap<String, User>();
-
+	// username - user
+	public static HashMap<String, Integer> username_port = new HashMap<String, Integer>();
+	
+	
 	public boolean verify(User user) {
 		
 		try {
@@ -55,9 +60,12 @@ public class UserService {
 	}	
 	
 	public void registerLogin(User user) {
-		
+		++port;
+		user.setPort(port);
 		onlineUsers.add(user);
 		activeUsers.put(user.getCity(), user);
+		username_port.put(user.getUsername(),port);
+		System.out.println(username_port);
 		System.out.println("Prijavio se korisnik " + user+ " | ukupno online:" + onlineUsers.size()) ;
 	}
 	
@@ -69,11 +77,17 @@ public class UserService {
 		return activeUsers.get(city);
 	}
 	
+	public int assignPort() {
+		return port;
+	}
+	
 	public void registerLogout(User user) {
 		
 		onlineUsers.remove(user);
 		activeUsers.replace(user.getCity(), null);
 		System.out.println("Odjavio se korisnik " + user+ " | ukupno online:" + onlineUsers.size()) ;
 	}
-	
+	public int getPort(String username) {
+		return username_port.get(username);
+	}
 }

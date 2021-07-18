@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -20,6 +21,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.zsmdp.main.MainPageController">
    <children>
+      <Rectangle id="rectangle" height="225.0" layoutX="124.0" layoutY="369.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="340.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color blue="0.25882354378700256" green="0.250980406999588" red="0.24313725531101227" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color blue="0.3799999952316284" green="0.8553333282470703" opacity="0.3391304314136505" red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow height="41.76" radius="20.38" spread="0.07" width="41.76" />
+         </effect>
+      </Rectangle>
       <ImageView fitHeight="659.0" fitWidth="426.0" layoutX="485.0" layoutY="-8.0" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../MDP%20resursi/map5.PNG" />
@@ -165,27 +187,27 @@
             <DropShadow height="41.76" radius="20.38" spread="0.07" width="41.76" />
          </effect>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3e4042" height="225.0" layoutX="124.0" layoutY="370.0" stroke="#3e4042" strokeType="INSIDE" width="340.0" />
-      <Label layoutX="147.0" layoutY="340.0" text="Chat" textFill="WHITE">
+      <Label layoutX="148.0" layoutY="336.0" text="Chat" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="124.0" layoutY="345.0" preserveRatio="true">
+      <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="125.0" layoutY="341.0" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../MDP%20resursi/ikonice/chat.png" />
          </image>
       </ImageView>
       <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="560.0" prefHeight="17.0" prefWidth="39.0" textAlignment="CENTER" textFill="#ebebeb" wrapText="true" />
-      <TextField editable="false" layoutX="135.0" layoutY="556.0" prefHeight="25.0" prefWidth="183.0" />
-      <Button layoutX="397.0" layoutY="556.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" text="Button" />
-      <Button layoutX="330.0" layoutY="556.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" text="Button" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a347" height="132.0" layoutX="129.0" layoutY="417.0" stroke="#a1a1a147" strokeType="INSIDE" width="327.0" />
-      <Button layoutX="397.0" layoutY="509.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" text="Button" />
-      <TextField layoutX="135.0" layoutY="516.0" prefHeight="27.0" prefWidth="183.0" />
-      <ChoiceBox fx:id="locations" layoutX="135.0" layoutY="381.0" onAction="#locationSelected" onContextMenuRequested="#locationSelected" prefWidth="150.0" />
-      <ChoiceBox fx:id="activeUsers" layoutX="300.0" layoutY="381.0" prefWidth="150.0" />
-      <Button fx:id="logOutBtn" layoutX="19.0" layoutY="454.0" mnemonicParsing="false" onAction="#logOut" prefHeight="37.0" prefWidth="47.0" style="-fx-background-color: transparent;" text="Button">
+      <TextField fx:id="messageField" layoutX="135.0" layoutY="423.0" prefHeight="37.0" prefWidth="210.0" promptText="Aa" style="-fx-background-radius: 100; -fx-background-color: #ebebeb;">
+         <effect>
+            <DropShadow color="#46464682" height="9.14" radius="4.07" spread="0.15" width="9.14" />
+         </effect></TextField>
+      <ChoiceBox fx:id="locations" layoutX="136.0" layoutY="381.0" onAction="#locationSelected" onContextMenuRequested="#locationSelected" prefHeight="25.0" prefWidth="156.0" style="-fx-mark-color: #FFDA60; -fx-background-color: #C6C3BD; -fx-background-radius: 100; -fx-text-fill: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></ChoiceBox>
+      <ChoiceBox fx:id="activeUsers" layoutX="297.0" layoutY="381.0" prefHeight="25.0" prefWidth="156.0" style="-fx-mark-color: #FFDA60; -fx-background-color: #C6C3BD; -fx-background-radius: 100;" />
+      <Button fx:id="logOutBtn" layoutX="18.0" layoutY="456.0" mnemonicParsing="false" onAction="#logOut" prefHeight="37.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="Button">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -277,5 +299,52 @@
             <Glow level="0.31" />
          </effect>
       </Line>
+      <Button layoutX="401.0" layoutY="420.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/send%20(1).png" />
+               </image>
+               <effect>
+                  <DropShadow color="#00000082" height="9.14" radius="4.07" spread="0.15" width="9.14" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="353.0" layoutY="420.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="47.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/clip%20(1).png" />
+               </image>
+               <effect>
+                  <DropShadow color="#00000081" height="9.14" radius="4.07" spread="0.15" width="9.14" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Circle fill="#ffda60" layoutX="53.0" layoutY="417.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="inbox" alignment="TOP_LEFT" layoutX="127.0" layoutY="489.0" prefHeight="102.0" prefWidth="331.0" promptText="Pristigle poruke" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextField>
+      <Line endX="317.0" endY="-2.0" layoutX="147.0" layoutY="476.0" startX="-22.0" startY="-2.0" stroke="#ffda612c" strokeLineCap="BUTT">
+         <effect>
+            <DropShadow height="53.62" radius="18.155" spread="0.23" />
+         </effect>
+      </Line>
+      <Circle fill="#ffda60" layoutX="135.0" layoutY="489.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>
 </AnchorPane>

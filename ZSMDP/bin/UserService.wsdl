@@ -5,6 +5,20 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://soap.czmdp.mdp.etfbl.net" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://model.mdp.etfbl.net"/>
+   <element name="getPort">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPortResponse">
+    <complexType>
+     <sequence>
+      <element name="getPortReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="verify">
     <complexType>
      <sequence>
@@ -19,15 +33,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="registerLogin">
+   <element name="getOnlineUsers">
+    <complexType/>
+   </element>
+   <element name="getOnlineUsersResponse">
     <complexType>
      <sequence>
-      <element name="user" type="tns1:User"/>
+      <element maxOccurs="unbounded" name="getOnlineUsersReturn" type="tns1:User"/>
      </sequence>
     </complexType>
    </element>
-   <element name="registerLoginResponse">
+   <element name="assignPort">
     <complexType/>
+   </element>
+   <element name="assignPortResponse">
+    <complexType>
+     <sequence>
+      <element name="assignPortReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
    </element>
    <element name="registerLogout">
     <complexType>
@@ -37,6 +61,16 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     </complexType>
    </element>
    <element name="registerLogoutResponse">
+    <complexType/>
+   </element>
+   <element name="registerLogin">
+    <complexType>
+     <sequence>
+      <element name="user" type="tns1:User"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerLoginResponse">
     <complexType/>
    </element>
    <element name="getActiveUser">
@@ -53,27 +87,58 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="getOnlineUsers">
-    <complexType/>
-   </element>
-   <element name="getOnlineUsersResponse">
-    <complexType>
-     <sequence>
-      <element maxOccurs="unbounded" name="getOnlineUsersReturn" type="tns1:User"/>
-     </sequence>
-    </complexType>
-   </element>
   </schema>
   <schema elementFormDefault="qualified" targetNamespace="http://model.mdp.etfbl.net" xmlns="http://www.w3.org/2001/XMLSchema">
    <complexType name="User">
     <sequence>
      <element name="city" nillable="true" type="xsd:string"/>
      <element name="password" nillable="true" type="xsd:string"/>
+     <element name="port" type="xsd:int"/>
      <element name="username" nillable="true" type="xsd:string"/>
     </sequence>
    </complexType>
   </schema>
  </wsdl:types>
+
+   <wsdl:message name="getPortResponse">
+
+      <wsdl:part element="impl:getPortResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerLoginRequest">
+
+      <wsdl:part element="impl:registerLogin" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="assignPortResponse">
+
+      <wsdl:part element="impl:assignPortResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOnlineUsersRequest">
+
+      <wsdl:part element="impl:getOnlineUsers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="assignPortRequest">
+
+      <wsdl:part element="impl:assignPort" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
 
    <wsdl:message name="getOnlineUsersResponse">
 
@@ -94,14 +159,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="verifyResponse">
 
       <wsdl:part element="impl:verifyResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="registerLoginRequest">
-
-      <wsdl:part element="impl:registerLogin" name="parameters">
 
       </wsdl:part>
 
@@ -131,14 +188,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getOnlineUsersRequest">
-
-      <wsdl:part element="impl:getOnlineUsers" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="getActiveUserRequest">
 
       <wsdl:part element="impl:getActiveUser" name="parameters">
@@ -155,7 +204,27 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="getPortRequest">
+
+      <wsdl:part element="impl:getPort" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:portType name="UserService">
+
+      <wsdl:operation name="getPort">
+
+         <wsdl:input message="impl:getPortRequest" name="getPortRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPortResponse" name="getPortResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="verify">
 
@@ -164,42 +233,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:verifyResponse" name="verifyResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="registerLogin">
-
-         <wsdl:input message="impl:registerLoginRequest" name="registerLoginRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:registerLoginResponse" name="registerLoginResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="registerLogout">
-
-         <wsdl:input message="impl:registerLogoutRequest" name="registerLogoutRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:registerLogoutResponse" name="registerLogoutResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getActiveUser">
-
-         <wsdl:input message="impl:getActiveUserRequest" name="getActiveUserRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getActiveUserResponse" name="getActiveUserResponse">
 
        </wsdl:output>
 
@@ -217,11 +250,77 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="assignPort">
+
+         <wsdl:input message="impl:assignPortRequest" name="assignPortRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:assignPortResponse" name="assignPortResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerLogout">
+
+         <wsdl:input message="impl:registerLogoutRequest" name="registerLogoutRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:registerLogoutResponse" name="registerLogoutResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerLogin">
+
+         <wsdl:input message="impl:registerLoginRequest" name="registerLoginRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:registerLoginResponse" name="registerLoginResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getActiveUser">
+
+         <wsdl:input message="impl:getActiveUserRequest" name="getActiveUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getActiveUserResponse" name="getActiveUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="UserServiceSoapBinding" type="impl:UserService">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getPort">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPortRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPortResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="verify">
 
@@ -241,17 +340,35 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="registerLogin">
+      <wsdl:operation name="getOnlineUsers">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="registerLoginRequest">
+         <wsdl:input name="getOnlineUsersRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="registerLoginResponse">
+         <wsdl:output name="getOnlineUsersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="assignPort">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="assignPortRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="assignPortResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -277,6 +394,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="registerLogin">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="registerLoginRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registerLoginResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="getActiveUser">
 
          <wsdlsoap:operation soapAction=""/>
@@ -288,24 +423,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getActiveUserResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getOnlineUsers">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getOnlineUsersRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getOnlineUsersResponse">
 
             <wsdlsoap:body use="literal"/>
 

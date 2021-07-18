@@ -8,9 +8,11 @@
 package net.etfbl.mdp.czmdp.soap;
 
 public interface UserService extends java.rmi.Remote {
+    public int getPort(java.lang.String username) throws java.rmi.RemoteException;
     public boolean verify(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException;
-    public void registerLogin(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException;
-    public void registerLogout(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException;
-    public net.etfbl.mdp.model.User getActiveUser(java.lang.String city) throws java.rmi.RemoteException;
     public net.etfbl.mdp.model.User[] getOnlineUsers() throws java.rmi.RemoteException;
+    public int assignPort() throws java.rmi.RemoteException;
+    public void registerLogout(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException;
+    public void registerLogin(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException;
+    public net.etfbl.mdp.model.User getActiveUser(java.lang.String city) throws java.rmi.RemoteException;
 }

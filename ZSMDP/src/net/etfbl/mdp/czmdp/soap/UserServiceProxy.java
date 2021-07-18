@@ -44,16 +44,28 @@ public class UserServiceProxy implements net.etfbl.mdp.czmdp.soap.UserService {
     return userService;
   }
   
+  public int getPort(java.lang.String username) throws java.rmi.RemoteException{
+    if (userService == null)
+      _initUserServiceProxy();
+    return userService.getPort(username);
+  }
+  
   public boolean verify(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException{
     if (userService == null)
       _initUserServiceProxy();
     return userService.verify(user);
   }
   
-  public void registerLogin(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException{
+  public net.etfbl.mdp.model.User[] getOnlineUsers() throws java.rmi.RemoteException{
     if (userService == null)
       _initUserServiceProxy();
-    userService.registerLogin(user);
+    return userService.getOnlineUsers();
+  }
+  
+  public int assignPort() throws java.rmi.RemoteException{
+    if (userService == null)
+      _initUserServiceProxy();
+    return userService.assignPort();
   }
   
   public void registerLogout(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException{
@@ -62,16 +74,16 @@ public class UserServiceProxy implements net.etfbl.mdp.czmdp.soap.UserService {
     userService.registerLogout(user);
   }
   
+  public void registerLogin(net.etfbl.mdp.model.User user) throws java.rmi.RemoteException{
+    if (userService == null)
+      _initUserServiceProxy();
+    userService.registerLogin(user);
+  }
+  
   public net.etfbl.mdp.model.User getActiveUser(java.lang.String city) throws java.rmi.RemoteException{
     if (userService == null)
       _initUserServiceProxy();
     return userService.getActiveUser(city);
-  }
-  
-  public net.etfbl.mdp.model.User[] getOnlineUsers() throws java.rmi.RemoteException{
-    if (userService == null)
-      _initUserServiceProxy();
-    return userService.getOnlineUsers();
   }
   
   

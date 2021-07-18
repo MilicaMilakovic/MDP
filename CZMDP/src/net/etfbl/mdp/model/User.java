@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 	
+	private static int id;
+	
 	private String username;
 	private String password;
 	private String city;
+	private int port = 9000 + id;
 	
 	
 	public User() {
@@ -16,12 +19,25 @@ public class User implements Serializable {
 
 	public User(String username, String password, String city) {
 		super();
+		
+		++id;
 		this.username = username;
 		this.password = password;
 		this.city = city;
 	}
 	
 	
+	
+	public int getPort() {
+		return port;
+	}
+
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+
+
 	public String getUsername() {
 		return username;
 	}
@@ -42,9 +58,11 @@ public class User implements Serializable {
 	}
 
 
+	
+
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", city=" + city + "]";
+		return "User [username=" + username + ", password=" + password + ", city=" + city + ", port=" + port + "]";
 	}
 
 

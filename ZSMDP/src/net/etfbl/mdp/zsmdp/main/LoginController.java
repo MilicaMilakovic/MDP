@@ -61,9 +61,6 @@ public class LoginController implements Initializable {
 	   
 	   User user = new User(name,pass,city);
 	   
-	   System.out.println(user);
-	   
-	   
 	   UserServiceServiceLocator locator = new UserServiceServiceLocator();
 	   
 	   try {
