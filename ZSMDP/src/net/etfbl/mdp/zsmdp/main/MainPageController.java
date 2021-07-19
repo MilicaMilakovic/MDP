@@ -1,6 +1,8 @@
 package net.etfbl.mdp.zsmdp.main;
 
+import java.awt.Desktop;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -12,6 +14,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
@@ -23,7 +26,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
@@ -50,7 +57,9 @@ public class MainPageController implements Initializable {
 	@FXML
 	public TextField messageField;
 	@FXML
-	public TextField inbox;
+	public TextArea inbox;
+	@FXML
+	public Circle messageArrived;
 	
 	
 	private static final int CHAT_PORT = 9999; 
@@ -112,6 +121,8 @@ public class MainPageController implements Initializable {
 		locations.getSelectionModel().select(Arrays.asList(Main.locations).indexOf(user.getCity()));
 		activeUsers.getItems().clear();
 		
+		//inbox.setOnMouseClicked(e -> { messageArrived.setVisible(false);});
+		
 		checkForNewMessages();
 	
 	}
@@ -148,16 +159,7 @@ public class MainPageController implements Initializable {
 			//PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
 			ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
 			ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-			
-//			Message message = new Message();
-//			message.setMessage(messageField.getText());
-//			message.setSender(user);
-//			User rec = new User();
-//			rec.setUsername(activeUsers.getValue());
-//			message.setReceiver(rec);
-			
-			// sender.username | sender.port | message | receiver.username
-		//	String message = user.getUsername() + "|" + user.getPort()+"|"+ messageField.getText()+"|"+activeUsers.getValue();
+
 			UserServiceServiceLocator locator = new UserServiceServiceLocator();
 			UserService service = locator.getUserService();
 			
@@ -213,10 +215,10 @@ public class MainPageController implements Initializable {
 				Message message = gson.fromJson(message_string, Message.class);
 				oos.writeObject("Primljenoo");		
 				System.out.println("Primljena poruka " +message.getMessage());
+								
+				messageArrived.setVisible(true);	
 				
-				//inbox.setStyle(" -fx-text-fill: #FFFFFF; ");
-				
-				String m = message.getReceiverUsername() + "   \n" + message.getMessage() + "\n";
+				String m = "\uD83D\uDCAC" +" " +message.getSenderUsername() + "   \n\t" + message.getMessage() + "\n";
 				inbox.appendText(m);
 					
 					
@@ -234,4 +236,38 @@ public class MainPageController implements Initializable {
 			}
 		}).start();
 	}
+	
+	
+	public void messageSeen() {
+		messageArrived.setVisible(false);
+	}
+	
+	
+	public void sendReport() {
+		
+		Stage stage = new Stage();
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("ZSMDP Report Chooser");
+		fileChooser.getExtensionFilters().add(new ExtensionFilter("PDF Files","*.pdf"));
+		File fileSelected = fileChooser.showOpenDialog(stage);
+		
+		if(fileSelected != null)
+		{			
+			System.out.println("odabran fajl " + fileSelected.getName());
+			
+			try {
+				byte[] fileContent = Files.readAllBytes(fileSelected.toPath());
+				
+				// klijent ce serveru slati  fileSelected.getName(),fileContent,user.getUsername()
+				// server ce 
+				//ReportFile reportFile = new ReportFile(fileSelected.getName(),fileContent,user.getUsername());
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+					
+		}
+	}
+	
 }

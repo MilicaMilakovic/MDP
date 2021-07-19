@@ -1,5 +1,6 @@
 .text-area {
     -fx-background-color: transparent;
+	-fx-text-fill: #FFFFFF;
 }
 
 .text-area .scroll-pane {
@@ -13,4 +14,8 @@
 
 .text-area .scroll-pane .content{
     -fx-background-color: transparent;
+}
+
+.text-area:focused .content{
+	-fx-font-weight: normal;
 }
