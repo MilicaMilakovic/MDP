@@ -3,13 +3,16 @@ package net.etfbl.mdp.zsmdp.main;
 import java.awt.Desktop;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.DatagramPacket;
 import java.net.InetAddress;
+import java.net.MulticastSocket;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
@@ -25,13 +28,17 @@ import javax.xml.rpc.ServiceException;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
@@ -52,8 +59,6 @@ public class MainPageController implements Initializable {
 	public  Label username = new Label();
 	@FXML
 	public  Label location = new Label();
-	
-	public static User user;
 	@FXML
 	public ChoiceBox<String> locations;
 	@FXML
@@ -70,7 +75,10 @@ public class MainPageController implements Initializable {
 	public Circle messageArrived;
 	@FXML
 	public ImageView notificationBell;
+	@FXML
+	public TextArea notificationField;	
 	
+	public static User user;
 	private static final int CHAT_PORT = 9999; 
 	
 	
@@ -93,21 +101,16 @@ public class MainPageController implements Initializable {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
-		
-	
+		}			
 	}
 	
 	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-				
-		
+			
 		username.setText(user.getUsername());
-		location.setText(user.getCity());
-		
+		location.setText(user.getCity());		
 		
 		UserServiceServiceLocator locator = new UserServiceServiceLocator();
 		
@@ -116,8 +119,7 @@ public class MainPageController implements Initializable {
 			service.registerLogin(user);
 			user.setPort(service.assignPort());
 			
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (Exception e) {			
 			e.printStackTrace();
 		}
 		
@@ -130,11 +132,10 @@ public class MainPageController implements Initializable {
 		locations.getItems().add("Trebinje");
 		
 		locations.getSelectionModel().select(Arrays.asList(Main.locations).indexOf(user.getCity()));
-		activeUsers.getItems().clear();
-		
-		//inbox.setOnMouseClicked(e -> { messageArrived.setVisible(false);});
+		activeUsers.getItems().clear();		
 		
 		checkForNewMessages();
+		checkForNotifications();
 	
 	}
 	
@@ -191,10 +192,8 @@ public class MainPageController implements Initializable {
 		} catch (IOException e) {			
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
+		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
 		
@@ -237,8 +236,7 @@ public class MainPageController implements Initializable {
 					Thread.sleep(500);
 				} catch (Exception e) {
 					e.printStackTrace();
-				}
-					
+				}					
 					
 			}
 		}
@@ -266,9 +264,7 @@ public class MainPageController implements Initializable {
 		{			
 			System.out.println("odabran fajl " + fileSelected.getName());
 			
-			System.setProperty("java.security.policy", "./resources" + File.separator + "client_policyfile.txt");
-			
-			
+			System.setProperty("java.security.policy", "./resources" + File.separator + "client_policyfile.txt");			
 			
 			if(System.getSecurityManager() == null ) {
 				System.setSecurityManager( new SecurityManager());
@@ -302,7 +298,59 @@ public class MainPageController implements Initializable {
 		rotateTransition.setCycleCount(3);
 		rotateTransition.setInterpolator(Interpolator.EASE_BOTH);
 		rotateTransition.play();
+		rotateTransition.setOnFinished(e-> {notificationBell.setRotate(0);});		
+	}
+	
+	public void sendNotification() {
 		
+		Stage primaryStage = new Stage();
+		Parent root;
+		try {
+			root = FXMLLoader.load(getClass().getResource("SendNotification.fxml"));
 		
+			primaryStage.setTitle("Posalji obavjestenje");
+			primaryStage.getIcons().add(new Image(new FileInputStream(new File(Main.resources+File.separator+"icon.png"))));
+			primaryStage.setScene(new Scene(root,600,400));
+						
+			primaryStage.show();
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void checkForNotifications() {
+				
+		new Thread(()-> {
+			MulticastSocket socket = null;
+			byte[] buffer = new byte[256];
+			
+			try {
+				socket = new MulticastSocket(SendNotificationController.PORT);
+				InetAddress group = InetAddress.getByName(SendNotificationController.HOST);
+				socket.joinGroup(group);
+				
+				while(true) {
+					DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+					socket.receive(packet);
+					
+					String notification = new String(packet.getData(),0, packet.getLength());
+					
+					notificationField.appendText(notification+"\n");
+					
+					ringTheBell();
+					
+					try {
+						Thread.sleep(500);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
+			} catch (IOException e) {				
+				e.printStackTrace();
+			}
+		}).start();
 	}
 }

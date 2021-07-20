@@ -85,7 +85,7 @@
             <DropShadow color="#403d31" height="34.91" radius="17.185" width="35.83" />
          </effect>
       </ImageView>
-      <Line endX="282.0" layoutX="203.0" layoutY="39.0" startX="-100.0" strokeWidth="0.3">
+      <Line endX="271.0" layoutX="203.0" layoutY="39.0" startX="-100.0" strokeWidth="0.3">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -186,7 +186,7 @@
             <Insets />
          </opaqueInsets></ChoiceBox>
       <ChoiceBox fx:id="activeUsers" layoutX="295.0" layoutY="387.0" prefHeight="25.0" prefWidth="156.0" style="-fx-mark-color: #FFDA60; -fx-background-color: #C6C3BD; -fx-background-radius: 100;" />
-      <Button fx:id="logOutBtn" layoutX="17.0" layoutY="440.0" mnemonicParsing="false" onAction="#logOut" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="Button">
+      <Button fx:id="logOutBtn" ellipsisString="" layoutX="17.0" layoutY="440.0" mnemonicParsing="false" onAction="#logOut" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -198,7 +198,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="125.0" layoutY="177.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pošalji obavještenje" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
+      <Button layoutX="125.0" layoutY="177.0" mnemonicParsing="false" onAction="#sendNotification" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pošalji obavještenje" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -331,7 +331,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Line endX="317.0" endY="-2.0" layoutX="147.0" layoutY="476.0" startX="-22.0" startY="-2.0" stroke="#ffda612c" strokeLineCap="BUTT">
+      <Line endX="310.0" endY="-2.0" layoutX="147.0" layoutY="476.0" startX="-22.0" startY="-2.0" stroke="#ffda612c" strokeLineCap="BUTT">
          <effect>
             <DropShadow height="53.62" radius="18.155" spread="0.23" />
          </effect>
@@ -340,7 +340,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Circle>
-      <Rectangle id="rectangle" height="40.0" layoutX="124.0" layoutY="298.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="333.0">
+      <Rectangle id="rectangle" height="45.0" layoutX="124.0" layoutY="298.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="333.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
                <stops>
@@ -361,7 +361,7 @@
             <DropShadow height="50.65" radius="25.5675" width="53.62" />
          </effect>
       </Rectangle>
-      <ImageView fx:id="notificationBell" fitHeight="20.0" fitWidth="24.0" layoutX="129.0" layoutY="308.0" preserveRatio="true" rotate="-30.0">
+      <ImageView fx:id="notificationBell" fitHeight="20.0" fitWidth="24.0" layoutX="129.0" layoutY="311.0" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../MDP%20resursi/ikonice/notification%20(1).png" />
          </image>
@@ -369,12 +369,14 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <TextArea disable="true" layoutX="162.0" layoutY="300.0" prefHeight="37.0" prefWidth="295.0" stylesheets="@../../../../../style/style.css" />
+      <TextArea fx:id="notificationField" disable="true" layoutX="162.0" layoutY="301.0" prefHeight="17.0" prefWidth="295.0" promptText="Obavještenja" style="-fx-text-alignment: center;" stylesheets="@../../../../../style/style.css">
+         <font>
+            <Font size="13.0" />
+         </font></TextArea>
       <Label layoutX="23.0" layoutY="480.0" text="Odjavi se" textAlignment="RIGHT" textFill="#ebebeb">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <Button layoutX="399.0" layoutY="346.0" mnemonicParsing="false" onAction="#ringTheBell" text="Button" />
    </children>
 </AnchorPane>
