@@ -15,6 +15,8 @@ import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
@@ -36,6 +38,8 @@ import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
 import net.etfbl.mdp.model.Message;
 import net.etfbl.mdp.model.User;
+import net.etfbl.mdp.rmi.ReportInterface;
+
 import com.google.gson.Gson;
 
 public class MainPageController implements Initializable {	
@@ -93,6 +97,8 @@ public class MainPageController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+				
 		
 		username.setText(user.getUsername());
 		location.setText(user.getCity());
@@ -255,15 +261,26 @@ public class MainPageController implements Initializable {
 		{			
 			System.out.println("odabran fajl " + fileSelected.getName());
 			
+			System.setProperty("java.security.policy", "./resources" + File.separator + "client_policyfile.txt");
+			
+			
+			
+			if(System.getSecurityManager() == null ) {
+				System.setSecurityManager( new SecurityManager());
+			}
+			
+			
 			try {
 				byte[] fileContent = Files.readAllBytes(fileSelected.toPath());
 				
-				// klijent ce serveru slati  fileSelected.getName(),fileContent,user.getUsername()
-				// server ce 
-				//ReportFile reportFile = new ReportFile(fileSelected.getName(),fileContent,user.getUsername());
+				String name = "ReportServer";
+				Registry registry = LocateRegistry.getRegistry(1099);
+				ReportInterface server = (ReportInterface) registry.lookup(name);
 				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				System.out.println(user.getUsername() + " poslao izvjestaj " + fileSelected.getName() + " na AZSMDP");
+				server.uploadReport(fileSelected.getName(), fileContent, user.getUsername());
+				
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 					
