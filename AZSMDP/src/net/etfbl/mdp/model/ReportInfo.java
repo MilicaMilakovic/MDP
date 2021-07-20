@@ -21,7 +21,7 @@ public class ReportInfo {
 		this.fileName = fileName;
 		this.sender = sender;
 		this.size = size;
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		timeStamp = new SimpleDateFormat("dd.MM.yyyy. HH:mm:ss").format(Calendar.getInstance().getTime());
 		
 	}
 
@@ -29,7 +29,7 @@ public class ReportInfo {
 
 	public ReportInfo() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 		

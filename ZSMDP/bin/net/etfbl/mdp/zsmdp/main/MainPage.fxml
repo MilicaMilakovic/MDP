@@ -22,7 +22,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.zsmdp.main.MainPageController">
    <children>
-      <Rectangle id="rectangle" height="225.0" layoutX="124.0" layoutY="369.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="340.0">
+      <Rectangle id="rectangle" height="216.0" layoutX="124.0" layoutY="378.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="333.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
                <stops>
@@ -48,7 +48,7 @@
             <Font size="13.0" />
          </font>
       </TextArea>
-      <ImageView fitHeight="659.0" fitWidth="426.0" layoutX="485.0" layoutY="-8.0" preserveRatio="true">
+      <ImageView fitHeight="611.0" fitWidth="437.0" layoutX="474.0" layoutY="-8.0" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../MDP%20resursi/map5.PNG" />
          </image>
@@ -57,12 +57,12 @@
          <effect>
             <DropShadow />
          </effect></Rectangle>
-      <Label fx:id="location" layoutX="387.0" layoutY="12.0" prefHeight="17.0" prefWidth="74.0" text="Banja Luka" textFill="WHITE">
+      <Label fx:id="location" layoutX="377.0" layoutY="12.0" prefHeight="17.0" prefWidth="74.0" text="Banja Luka" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="370.0" layoutY="14.0" preserveRatio="true">
+      <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="360.0" layoutY="14.0" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../MDP%20resursi/ikonice/placeholder.png" />
          </image>
@@ -86,7 +86,7 @@
             <DropShadow color="#403d31" height="34.91" radius="17.185" width="35.83" />
          </effect>
       </ImageView>
-      <Line endX="282.0" layoutX="203.0" layoutY="47.0" startX="-100.0" strokeWidth="0.3">
+      <Line endX="282.0" layoutX="203.0" layoutY="39.0" startX="-100.0" strokeWidth="0.3">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -104,33 +104,7 @@
             </LinearGradient>
          </stroke>
       </Line>
-      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="34.0" layoutY="406.0" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../MDP%20resursi/ikonice/notification.png" />
-         </image>
-      </ImageView>
-      <Rectangle id="rectangle" height="109.0" layoutX="125.0" layoutY="85.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="156.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color blue="0.25882354378700256" green="0.250980406999588" red="0.24313725531101227" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color blue="0.3799999952316284" green="0.8553333282470703" opacity="0.3391304314136505" red="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-         <effect>
-            <DropShadow height="50.65" radius="25.5675" width="53.62" />
-         </effect>
-      </Rectangle>
-      <Rectangle id="rectangle" height="109.0" layoutX="306.0" layoutY="85.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="156.0">
+      <Rectangle id="rectangle" height="109.0" layoutX="301.0" layoutY="56.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="156.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
                <stops>
@@ -151,7 +125,7 @@
             <DropShadow />
          </effect>
       </Rectangle>
-      <Rectangle id="rectangle" height="109.0" layoutX="125.0" layoutY="220.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="156.0">
+      <Rectangle id="rectangle" height="109.0" layoutX="125.0" layoutY="176.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="156.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
                <stops>
@@ -172,7 +146,7 @@
             <DropShadow />
          </effect>
       </Rectangle>
-      <Rectangle id="rectangle" height="109.0" layoutX="306.0" layoutY="220.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="156.0">
+      <Rectangle id="rectangle" height="109.0" layoutX="301.0" layoutY="176.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="156.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
                <stops>
@@ -193,27 +167,27 @@
             <DropShadow height="41.76" radius="20.38" spread="0.07" width="41.76" />
          </effect>
       </Rectangle>
-      <Label layoutX="148.0" layoutY="336.0" text="Chat" textFill="WHITE">
+      <Label layoutX="148.0" layoutY="345.0" text="Chat" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="125.0" layoutY="341.0" preserveRatio="true">
+      <ImageView fitHeight="18.0" fitWidth="17.0" layoutX="128.0" layoutY="349.0" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../MDP%20resursi/ikonice/chat.png" />
          </image>
       </ImageView>
       <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="560.0" prefHeight="17.0" prefWidth="39.0" textAlignment="CENTER" textFill="#ebebeb" wrapText="true" />
-      <TextField fx:id="messageField" layoutX="135.0" layoutY="423.0" prefHeight="37.0" prefWidth="210.0" promptText="Aa" style="-fx-background-radius: 100; -fx-background-color: #ebebeb;">
+      <TextField fx:id="messageField" layoutX="137.0" layoutY="428.0" prefHeight="35.0" prefWidth="210.0" promptText="Aa" style="-fx-background-radius: 100; -fx-background-color: #ebebeb;">
          <effect>
             <DropShadow color="#46464682" height="9.14" radius="4.07" spread="0.15" width="9.14" />
          </effect></TextField>
-      <ChoiceBox fx:id="locations" layoutX="136.0" layoutY="381.0" onAction="#locationSelected" onContextMenuRequested="#locationSelected" prefHeight="25.0" prefWidth="156.0" style="-fx-mark-color: #FFDA60; -fx-background-color: #C6C3BD; -fx-background-radius: 100; -fx-text-fill: white;">
+      <ChoiceBox fx:id="locations" layoutX="134.0" layoutY="387.0" onAction="#locationSelected" onContextMenuRequested="#locationSelected" prefHeight="25.0" prefWidth="156.0" style="-fx-mark-color: #FFDA60; -fx-background-color: #C6C3BD; -fx-background-radius: 100; -fx-text-fill: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets></ChoiceBox>
-      <ChoiceBox fx:id="activeUsers" layoutX="297.0" layoutY="381.0" prefHeight="25.0" prefWidth="156.0" style="-fx-mark-color: #FFDA60; -fx-background-color: #C6C3BD; -fx-background-radius: 100;" />
-      <Button fx:id="logOutBtn" layoutX="18.0" layoutY="456.0" mnemonicParsing="false" onAction="#logOut" prefHeight="37.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="Button">
+      <ChoiceBox fx:id="activeUsers" layoutX="295.0" layoutY="387.0" prefHeight="25.0" prefWidth="156.0" style="-fx-mark-color: #FFDA60; -fx-background-color: #C6C3BD; -fx-background-radius: 100;" />
+      <Button fx:id="logOutBtn" layoutX="18.0" layoutY="449.0" mnemonicParsing="false" onAction="#logOut" prefHeight="37.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="Button">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -225,12 +199,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Line endX="134.0" endY="-2.0" layoutX="147.0" layoutY="87.0" startX="-22.0" startY="-2.0" stroke="#ffda60" strokeLineCap="BUTT" strokeWidth="3.0">
-         <effect>
-            <Glow level="0.31" />
-         </effect>
-      </Line>
-      <Button layoutX="125.0" layoutY="221.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pošalji obavještenje" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
+      <Button layoutX="125.0" layoutY="177.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pošalji obavještenje" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -245,7 +214,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="305.0" layoutY="218.0" mnemonicParsing="false" onAction="#sendReport" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pošalji  izvještaj" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
+      <Button layoutX="301.0" layoutY="176.0" mnemonicParsing="false" onAction="#sendReport" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pošalji  izvještaj" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -260,7 +229,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="306.0" layoutY="87.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Evidentiraj prolazak voza" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
+      <Button layoutX="301.0" layoutY="59.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Evidentiraj prolazak voza" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="38.0" opacity="0.71" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -275,22 +244,22 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Line endX="134.0" endY="-2.0" layoutX="328.0" layoutY="89.0" startX="-22.0" startY="-2.0" stroke="#ffda60" strokeLineCap="BUTT" strokeWidth="3.0">
+      <Line endX="134.0" endY="-2.0" layoutX="323.0" layoutY="59.0" startX="-22.0" startY="-2.0" stroke="#ffda60" strokeLineCap="BUTT" strokeWidth="3.0">
          <effect>
             <Glow level="0.31" />
          </effect>
       </Line>
-      <Line endX="134.0" endY="-2.0" layoutX="147.0" layoutY="223.0" startX="-22.0" startY="-2.0" stroke="#ffda60" strokeLineCap="BUTT" strokeWidth="3.0">
+      <Line endX="134.0" endY="-2.0" layoutX="147.0" layoutY="179.0" startX="-22.0" startY="-2.0" stroke="#ffda60" strokeLineCap="BUTT" strokeWidth="3.0">
          <effect>
             <Glow level="0.31" />
          </effect>
       </Line>
-      <Line endX="134.0" endY="-2.0" layoutX="328.0" layoutY="224.0" startX="-22.0" startY="-2.0" stroke="#ffda60" strokeLineCap="BUTT" strokeWidth="3.0">
+      <Line endX="134.0" endY="-2.0" layoutX="323.0" layoutY="179.0" startX="-22.0" startY="-2.0" stroke="#ffda60" strokeLineCap="BUTT" strokeWidth="3.0">
          <effect>
             <Glow level="0.31" />
          </effect>
       </Line>
-      <Button layoutX="401.0" layoutY="420.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: transparent;">
+      <Button layoutX="399.0" layoutY="424.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -304,7 +273,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="353.0" layoutY="420.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="47.0" style="-fx-background-color: transparent;">
+      <Button layoutX="354.0" layoutY="424.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="47.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -322,17 +291,33 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Circle fill="#ffda60" layoutX="53.0" layoutY="417.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="317.0" endY="-2.0" layoutX="147.0" layoutY="476.0" startX="-22.0" startY="-2.0" stroke="#ffda612c" strokeLineCap="BUTT">
+      <Rectangle id="rectangle" height="109.0" layoutX="125.0" layoutY="56.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="156.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color blue="0.25882354378700256" green="0.250980406999588" red="0.24313725531101227" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color blue="0.3799999952316284" green="0.8553333282470703" opacity="0.3391304314136505" red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
          <effect>
-            <DropShadow height="53.62" radius="18.155" spread="0.23" />
+            <DropShadow height="50.65" radius="25.5675" width="53.62" />
+         </effect>
+      </Rectangle>
+      <Line endX="134.0" endY="-2.0" layoutX="147.0" layoutY="58.0" startX="-22.0" startY="-2.0" stroke="#ffda60" strokeLineCap="BUTT" strokeWidth="3.0">
+         <effect>
+            <Glow level="0.31" />
          </effect>
       </Line>
-      <Circle fx:id="messageArrived" fill="#ffda60" layoutX="134.0" layoutY="484.0" onMouseClicked="#messageSeen" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" visible="false">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Circle>
-      <Button fx:id="schedule" layoutX="126.0" layoutY="87.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pregled reda vožnje" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
+      <Button fx:id="schedule" layoutX="126.0" layoutY="58.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pregled reda vožnje" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
          <graphic>
             <ImageView fitHeight="38.0" fitWidth="42.0" opacity="0.71" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -347,5 +332,50 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Line endX="317.0" endY="-2.0" layoutX="147.0" layoutY="476.0" startX="-22.0" startY="-2.0" stroke="#ffda612c" strokeLineCap="BUTT">
+         <effect>
+            <DropShadow height="53.62" radius="18.155" spread="0.23" />
+         </effect>
+      </Line>
+      <Circle fx:id="messageArrived" fill="#ffda60" layoutX="134.0" layoutY="484.0" onMouseClicked="#messageSeen" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Circle>
+      <Rectangle id="rectangle" height="40.0" layoutX="124.0" layoutY="298.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="333.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color blue="0.25882354378700256" green="0.250980406999588" red="0.24313725531101227" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color blue="0.3799999952316284" green="0.8553333282470703" opacity="0.3391304314136505" red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow height="50.65" radius="25.5675" width="53.62" />
+         </effect>
+      </Rectangle>
+      <ImageView fx:id="notificationBell" fitHeight="20.0" fitWidth="24.0" layoutX="129.0" layoutY="308.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../MDP%20resursi/ikonice/notification%20(1).png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <TextArea layoutX="157.0" layoutY="300.0" prefHeight="25.0" prefWidth="299.0" stylesheets="@../../../../../style/style.css" />
+      <Label layoutX="23.0" layoutY="485.0" text="Odjavi se" textAlignment="RIGHT" textFill="#ebebeb">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Button layoutX="399.0" layoutY="346.0" mnemonicParsing="false" onAction="#ringTheBell" text="Button" />
    </children>
 </AnchorPane>

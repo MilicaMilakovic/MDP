@@ -22,6 +22,8 @@ import java.util.ResourceBundle;
 
 import javax.xml.rpc.ServiceException;
 
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -30,9 +32,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.util.Duration;
 import javafx.stage.Stage;
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
@@ -64,7 +68,8 @@ public class MainPageController implements Initializable {
 	public TextArea inbox;
 	@FXML
 	public Circle messageArrived;
-	
+	@FXML
+	public ImageView notificationBell;
 	
 	private static final int CHAT_PORT = 9999; 
 	
@@ -287,4 +292,17 @@ public class MainPageController implements Initializable {
 		}
 	}
 	
+	public void ringTheBell() {
+		
+		RotateTransition rotateTransition=new RotateTransition(Duration.millis(200), notificationBell);
+		rotateTransition.setFromAngle(30);
+		rotateTransition.setToAngle(-30);
+		
+		rotateTransition.setAutoReverse(true);
+		rotateTransition.setCycleCount(3);
+		rotateTransition.setInterpolator(Interpolator.EASE_BOTH);
+		rotateTransition.play();
+		
+		
+	}
 }
