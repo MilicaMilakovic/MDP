@@ -316,7 +316,7 @@
             <Glow level="0.31" />
          </effect>
       </Line>
-      <Button fx:id="schedule" layoutX="126.0" layoutY="58.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pregled reda vožnje" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
+      <Button fx:id="schedule" layoutX="126.0" layoutY="58.0" mnemonicParsing="false" onAction="#showSchedule" prefHeight="109.0" prefWidth="156.0" style="-fx-background-color: transparent;" text="Pregled reda vožnje" textAlignment="CENTER" textFill="#ebebeb" wrapText="true">
          <graphic>
             <ImageView fitHeight="38.0" fitWidth="42.0" opacity="0.71" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -369,7 +369,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <TextArea fx:id="notificationField" disable="true" layoutX="162.0" layoutY="301.0" prefHeight="17.0" prefWidth="295.0" promptText="Obavještenja" style="-fx-text-alignment: center;" stylesheets="@../../../../../style/style.css">
+      <TextArea fx:id="notificationField" disable="true" layoutX="168.0" layoutY="299.0" prefHeight="20.0" prefWidth="295.0" promptText="Obavještenja" style="-fx-text-alignment: center;" stylesheets="@../../../../../style/style.css">
          <font>
             <Font size="13.0" />
          </font></TextArea>

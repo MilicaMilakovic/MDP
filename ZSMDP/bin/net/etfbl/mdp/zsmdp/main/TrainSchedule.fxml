@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.zsmdp.main.TrainScheduleController">
+   <children>
+      <Rectangle id="rectangle" height="331.0" layoutX="31.0" layoutY="45.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="538.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color blue="0.25882354378700256" green="0.250980406999588" red="0.24313725531101227" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color blue="0.3799999952316284" green="0.8553333282470703" opacity="0.3391304314136505" red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow height="41.76" radius="20.38" spread="0.07" width="41.76" />
+         </effect>
+      </Rectangle>
+      <TextArea fx:id="timetable" editable="false" layoutX="65.0" layoutY="126.0" prefHeight="236.0" prefWidth="472.0" stylesheets="@../../../../../style/style.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <Line endX="132.0" endY="1.0" layoutX="159.0" layoutY="71.0" opacity="0.62" startX="-76.0" startY="1.0" stroke="#00000080" strokeWidth="2.0" />
+      <Line endX="244.0" endY="1.0" layoutX="277.0" layoutY="72.0" opacity="0.62" startX="163.0" startY="1.0" stroke="#00000080" strokeWidth="2.0" />
+      <Circle fill="#ffda60" layoutX="70.0" layoutY="74.0" opacity="0.62" radius="12.0" stroke="#00000060" strokeType="INSIDE">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="0.24" radius="1.1025" spread="0.02" width="6.17" />
+         </effect>
+      </Circle>
+      <Circle fill="#ffda60" layoutX="187.0" layoutY="74.0" radius="12.0" stroke="#00000060" strokeType="INSIDE">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="4.6875" radius="2.214375" spread="0.02" width="6.17" />
+         </effect>
+      </Circle>
+      <Circle fill="#ffda60" layoutX="530.0" layoutY="74.0" opacity="0.62" radius="12.0" stroke="#00000060" strokeType="INSIDE">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="0.24" radius="1.1025" spread="0.02" width="6.17" />
+         </effect>
+      </Circle>
+      <Line endX="255.0" endY="2.0" layoutX="158.0" layoutY="70.0" opacity="0.62" startX="158.0" startY="2.0" stroke="#00000080" strokeWidth="2.0" />
+      <Circle fill="#0000001b" layoutX="304.0" layoutY="74.0" opacity="0.62" radius="12.0" stroke="#ffda61" strokeType="INSIDE">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="0.24" radius="1.1025" spread="0.02" width="6.17" />
+         </effect>
+      </Circle>
+      <Circle fill="#0000001b" layoutX="426.0" layoutY="74.0" opacity="0.62" radius="12.0" stroke="#ffda61" strokeType="INSIDE">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="0.24" radius="1.1025" spread="0.02" width="6.17" />
+         </effect>
+      </Circle>
+      <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="255.0" layoutY="14.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../MDP%20resursi/ikonice/placeholder.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="city" layoutX="275.0" layoutY="13.0" text="Banjaluka" textFill="#ebebeb">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="100.0" opacity="0.71" text="Red vožnje" textFill="#ffda60">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow color="#0000007b" />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

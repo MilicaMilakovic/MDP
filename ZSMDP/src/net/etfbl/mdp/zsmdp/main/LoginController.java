@@ -105,25 +105,15 @@ public class LoginController implements Initializable {
 
 
 
-@Override
-public void initialize(URL location, ResourceBundle resources) {
-
-//	cities.setStyle(".combo-box .list-cell {\r\n"
-//			+ "     -fx-text-fill: white; "
-//			+ "-fx-mark-color :  #FFDA60;"
-//			+ "-fx-background-color: transparent;"
-//			+ "-fx-border-color: transparent transparent #ffffff transparent;\r\n"
-//			+ "}"
-//			+ " .combo-box  { -fx-text-fill: #ffffff}"
-//			);
-//	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 	
-	cities.getItems().add("Banjaluka");
-	cities.getItems().add("Bijeljina");
-	cities.getItems().add("Sarajevo");
-	cities.getItems().add("Mostar");
-	cities.getItems().add("Trebinje");
-}
+		cities.getItems().add("Banjaluka");
+		cities.getItems().add("Bijeljina");
+		cities.getItems().add("Sarajevo");
+		cities.getItems().add("Mostar");
+		cities.getItems().add("Trebinje");
+	}
 
     
 }

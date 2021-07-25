@@ -185,6 +185,9 @@ public class MainPageController implements Initializable {
 			String status=(String)in.readObject();
 			System.out.println(status);
 			
+			socket.close();
+			out.close();
+			in.close();
 			
 			
 		} catch (UnknownHostException e) {			
@@ -231,6 +234,7 @@ public class MainPageController implements Initializable {
 				String m = "\uD83D\uDCAC" +" " +message.getSenderUsername() + "   \n\t" + message.getMessage() + "\n";
 				inbox.appendText(m);
 					
+	
 					
 				try {
 					Thread.sleep(500);
@@ -352,5 +356,28 @@ public class MainPageController implements Initializable {
 				e.printStackTrace();
 			}
 		}).start();
+	}
+	
+	
+	public void showSchedule() {
+		
+		Stage primaryStage = new Stage();
+		Parent root;
+		try {
+			
+			TrainScheduleController.location = user.getCity();
+		
+			root = FXMLLoader.load(getClass().getResource("TrainSchedule.fxml"));
+		
+			primaryStage.setTitle("Red voznje");
+			primaryStage.getIcons().add(new Image(new FileInputStream(new File(Main.resources+File.separator+"icon.png"))));
+			primaryStage.setScene(new Scene(root,600,400));
+						
+			primaryStage.show();
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
