@@ -27,7 +27,7 @@
             <GaussianBlur radius="4.75" />
          </effect>
       </ImageView>
-      <Rectangle id="rectangle" height="369.0" layoutX="17.0" layoutY="13.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="446.0">
+      <Rectangle id="rectangle" height="369.0" layoutX="17.0" layoutY="13.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="481.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
                <stops>
@@ -48,13 +48,13 @@
             <DropShadow height="50.65" radius="25.5675" width="53.62" />
          </effect>
       </Rectangle>
-      <TextArea editable="false" layoutX="35.0" layoutY="51.0" prefHeight="170.0" prefWidth="409.0" stylesheets="@../../../../../style/style.css" />
+      <TextArea fx:id="reports" editable="false" layoutX="23.0" layoutY="51.0" prefHeight="170.0" prefWidth="462.0" stylesheets="@../../../../../style/style.css" />
       <Label layoutX="35.0" layoutY="26.0" text="Izvještaji" textFill="#ffda60">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Line endX="351.5" layoutX="109.0" layoutY="236.0" opacity="0.66" startX="-89.75" strokeLineCap="BUTT">
+      <Line endX="389.0" layoutX="109.0" layoutY="236.0" opacity="0.66" startX="-89.75" strokeLineCap="BUTT">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -77,15 +77,15 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Line endX="355.25" layoutX="105.0" layoutY="14.0" opacity="0.9" startX="-85.75" stroke="#ffda61" strokeWidth="4.0">
+      <Line endX="393.0" endY="-1.0" layoutX="105.0" layoutY="14.0" opacity="0.9" startX="-85.75" stroke="#ffda61" strokeWidth="4.0">
          <effect>
             <DropShadow color="#00000091" />
          </effect>
       </Line>
-      <TextField layoutX="174.0" layoutY="275.0" prefHeight="31.0" prefWidth="132.0" promptText="id izvjestaja" style="-fx-background-radius: 5;" />
-      <Button layoutX="211.0" layoutY="324.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="58.0" style="-fx-background-color: #4E4E4E;">
+      <TextField fx:id="reportID" layoutX="179.0" layoutY="282.0" prefHeight="31.0" prefWidth="132.0" promptText="id izvjestaja" style="-fx-background-radius: 5;" />
+      <Button fx:id="btn" layoutX="216.0" layoutY="330.0" mnemonicParsing="false" onAction="#download" prefHeight="38.0" prefWidth="57.0" style="-fx-background-color: #4E4E4E;">
          <graphic>
-            <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="33.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../images/down-arrow.png" />
                </image>
