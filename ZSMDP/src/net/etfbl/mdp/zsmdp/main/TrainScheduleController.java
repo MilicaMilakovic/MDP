@@ -30,7 +30,7 @@ public class TrainScheduleController implements Initializable {
 		
 		try {
 			HttpRequest request = HttpRequest.newBuilder()
-											 .uri(new URI("http://localhost:8080/CZMDP/api/linije/"+location))
+											 .uri(new URI("http://localhost:8080/CZMDP/api/linije/stanice/"+location))
 											 .GET()
 											 .build();
 			

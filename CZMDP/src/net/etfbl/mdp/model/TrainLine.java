@@ -12,12 +12,20 @@ public class TrainLine {
 	
 	private HashMap<String, TrainStation> trainLine = new HashMap<String, TrainStation>();
 
+	
 	public TrainLine() {
 		super();
 
 		id = serialID++;
 		name = "Linija #" + id;
 	}
+
+	
+	public TrainLine(int id) {
+		super();
+		this.id = id;
+	}
+
 
 	public int getId() {
 		return id;
@@ -53,4 +61,30 @@ public class TrainLine {
 		
 		return stations+"\n";
 	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TrainLine other = (TrainLine) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
+	
 }

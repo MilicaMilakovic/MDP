@@ -17,7 +17,7 @@ public class TrainStation implements Serializable {
 		realTime="";
 	}
 
-	
+
 	public TrainStation() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -103,6 +103,7 @@ public class TrainStation implements Serializable {
 			status = "\u274C"+"NIJE PROSAO";
 		return   name + " ("+ expectedTime + " , " + (realTime=="" ? "--:--" : realTime ) + ") " + status +"   •  ";
 	}
+	
 	
 	
 	

@@ -380,4 +380,25 @@ public class MainPageController implements Initializable {
 		}
 		
 	}
+	
+	public void trainPassed() {
+		
+		Stage primaryStage = new Stage();
+		Parent root;
+		try {
+			
+			TrainScheduleController.location = user.getCity();
+		
+			root = FXMLLoader.load(getClass().getResource("TrainPassed.fxml"));
+		
+			primaryStage.setTitle("Red voznje");
+			primaryStage.getIcons().add(new Image(new FileInputStream(new File(Main.resources+File.separator+"icon.png"))));
+			primaryStage.setScene(new Scene(root,600,400));
+						
+			primaryStage.show();
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
