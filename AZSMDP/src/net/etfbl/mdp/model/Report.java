@@ -1,6 +1,8 @@
 package net.etfbl.mdp.model;
 
-public class Report {
+import java.io.Serializable;
+
+public class Report implements Serializable {
 
 	private byte[] reportContent;
 	private String reportName;

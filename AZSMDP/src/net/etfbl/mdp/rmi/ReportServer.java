@@ -63,7 +63,10 @@ public class ReportServer implements ReportInterface {
 	 @Override
 	public Report downloadReport(int id) throws RemoteException {
 		
-		 File file = id_file.get(id);
+		 File file = findFile(id); 
+		 
+		 
+		 System.out.println(file);
 		 Report report = null;
 		 try {
 			 byte[] content = Files.readAllBytes(file.toPath());
@@ -77,6 +80,41 @@ public class ReportServer implements ReportInterface {
 		
 		return report;
 	}
+	 
+	 private File findFile(int id) {
+		 
+		File[] files = reportsDir.listFiles();
+		
+		File result= null;
+			
+		ArrayList<String> jsonInfo = new ArrayList<String>();
+		String fileName = "";
+		Gson gson = new Gson();
+		
+		for(File file : files)
+		{
+			if(file.getName().endsWith(".json")) {
+				try {
+					String content =new String(Files.readString(file.toPath()));
+					ReportInfo info = gson.fromJson(content, ReportInfo.class);
+					
+					if(info.getId() == id)
+					{
+						fileName = info.getFileName();
+						break;
+					}				
+					
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		if(!fileName.equals(""))
+			result = new File(reports+File.separator+fileName);
+		
+		return result;
+	 }
 	 
 	@Override
 	public ArrayList<String> getAllReports() throws RemoteException {

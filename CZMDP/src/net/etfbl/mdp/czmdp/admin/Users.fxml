@@ -108,6 +108,9 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <effect>
+            <DropShadow color="#000000bc" />
+         </effect>
       </Button>
       <Line endX="355.25" layoutX="105.0" layoutY="14.0" opacity="0.9" startX="-85.75" stroke="#ffda61" strokeWidth="4.0">
          <effect>
@@ -119,6 +122,9 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <effect>
+            <DropShadow color="#000000bd" />
+         </effect>
       </Button>
    </children>
 </AnchorPane>
