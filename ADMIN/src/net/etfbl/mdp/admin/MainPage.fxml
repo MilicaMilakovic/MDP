@@ -18,13 +18,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.czmdp.admin.MainPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.admin.MainPageController">
    <children>
       <AnchorPane fx:id="contentArea" layoutX="121.0" prefHeight="400.0" prefWidth="489.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="409.0" fitWidth="533.0" layoutX="-22.0" layoutY="-2.0" opacity="0.8" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../images/europe.PNG" />
+                  <Image url="@../../../../images/europe.PNG" />
                </image>
                <effect>
                   <GaussianBlur radius="4.75" />
@@ -69,7 +69,7 @@
                   </LinearGradient>
                </stroke>
             </Line>
-            <TextArea editable="false" layoutX="35.0" layoutY="43.0" prefHeight="87.0" prefWidth="409.0" stylesheets="@../../../../../style/style.css" />
+            <TextArea editable="false" layoutX="35.0" layoutY="43.0" prefHeight="87.0" prefWidth="409.0" stylesheets="@../../../../style/style.css" />
             <Label layoutX="35.0" layoutY="26.0" text="Registrovani korisnici" textFill="#ffda60">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -131,7 +131,7 @@
       </Rectangle>
       <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="52.0" layoutY="14.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../images/icon.png" />
+            <Image url="@../../../../images/icon.png" />
          </image>
       </ImageView>
       <Label layoutX="52.0" layoutY="57.0" text="CZMDP" textFill="#6a6868">
@@ -144,11 +144,11 @@
             <DropShadow />
          </effect>
       </Rectangle>
-      <Button graphicTextGap="22.0" layoutX="-8.0" layoutY="120.0" mnemonicParsing="false" onAction="#users" prefHeight="55.0" prefWidth="122.0" style="-fx-background-color: transparent;" stylesheets="@../../../../../style/button.css" text="Korisnici" textAlignment="RIGHT" textFill="#ebebeb">
+      <Button graphicTextGap="22.0" layoutX="-8.0" layoutY="120.0" mnemonicParsing="false" onAction="#users" prefHeight="55.0" prefWidth="122.0" style="-fx-background-color: transparent;" stylesheets="@../../../../style/button.css" text="Korisnici" textAlignment="RIGHT" textFill="#ebebeb">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../images/user%20(2).png" />
+                  <Image url="@../../../../images/user%20(2).png" />
                </image>
             </ImageView>
          </graphic>
@@ -159,7 +159,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button graphicTextGap="18.0" layoutX="-8.0" layoutY="177.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="122.0" style="-fx-background-color: transparent;" stylesheets="@../../../../../style/button.css" text="Red vožnje" textAlignment="RIGHT" textFill="#ebebeb">
+      <Button graphicTextGap="18.0" layoutY="177.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="114.0" style="-fx-background-color: transparent;" stylesheets="@../../../../style/button.css" text="Red vožnje" textAlignment="RIGHT" textFill="#ebebeb">
          <font>
             <Font size="11.0" />
          </font>
@@ -169,19 +169,19 @@
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../images/calendar%20(1).png" />
+                  <Image url="@../../../../images/calendar%20(1).png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button graphicTextGap="22.0" layoutX="-8.0" layoutY="232.0" mnemonicParsing="false" onAction="#reports" prefHeight="55.0" prefWidth="122.0" style="-fx-background-color: transparent;" stylesheets="@../../../../../style/button.css" text="Izvještaji" textAlignment="RIGHT" textFill="#ebebeb">
+      <Button graphicTextGap="22.0" layoutX="-8.0" layoutY="232.0" mnemonicParsing="false" onAction="#reports" prefHeight="55.0" prefWidth="122.0" style="-fx-background-color: transparent;" stylesheets="@../../../../style/button.css" text="Izvještaji" textAlignment="RIGHT" textFill="#ebebeb">
          <font>
             <Font size="11.0" />
          </font>
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../images/files.png" />
+                  <Image url="@../../../../images/files.png" />
                </image>
             </ImageView>
          </graphic>

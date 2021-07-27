@@ -17,11 +17,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.czmdp.admin.ReportsController">
+<AnchorPane prefHeight="400.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.admin.ReportsController">
    <children>
       <ImageView fitHeight="409.0" fitWidth="533.0" layoutX="-22.0" layoutY="-2.0" opacity="0.8" preserveRatio="true">
          <image>
-            <Image url="@../../../../../images/europe.PNG" />
+            <Image url="@../../../../images/europe.PNG" />
          </image>
          <effect>
             <GaussianBlur radius="4.75" />
@@ -48,7 +48,7 @@
             <DropShadow height="50.65" radius="25.5675" width="53.62" />
          </effect>
       </Rectangle>
-      <TextArea fx:id="reports" editable="false" layoutX="23.0" layoutY="51.0" prefHeight="170.0" prefWidth="462.0" stylesheets="@../../../../../style/style.css" />
+      <TextArea fx:id="reports" editable="false" layoutX="23.0" layoutY="51.0" prefHeight="170.0" prefWidth="462.0" stylesheets="@../../../../style/style.css" />
       <Label layoutX="35.0" layoutY="26.0" text="Izvještaji" textFill="#ffda60">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -87,7 +87,7 @@
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../images/down-arrow.png" />
+                  <Image url="@../../../../images/down-arrow.png" />
                </image>
             </ImageView>
          </graphic>

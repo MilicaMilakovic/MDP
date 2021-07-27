@@ -1,4 +1,4 @@
-package net.etfbl.mdp.czmdp.admin;
+package net.etfbl.mdp.admin;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -68,7 +68,7 @@ public class ReportsController implements Initializable {
 					File file = new File("./reports"+File.separator+r.getReportName());
 					
 					Files.write(file.toPath(), r.getReportContent());
-					System.out.println("Izvjestaj preuzet. Nalazi se u folderu reports");
+					System.out.println("Izvjestaj preuzet. Nalazi se u folderu reports.");
 				}
 				
 			} catch (RemoteException e) {				

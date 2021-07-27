@@ -1,4 +1,4 @@
-package net.etfbl.mdp.czmdp.admin;
+package net.etfbl.mdp.admin;
 
 import java.io.IOException;
 import java.net.URL;

@@ -16,20 +16,28 @@
       <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="verify" qname="operNS:verify" returnQName="retNS:verifyReturn" returnType="rtns:boolean" soapAction="">
         <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://model.mdp.etfbl.net" qname="pns:user" type="tns:User"/>
       </operation>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://model.mdp.etfbl.net" name="getActiveUser" qname="operNS:getActiveUser" returnQName="retNS:getActiveUserReturn" returnType="rtns:User" soapAction="">
+        <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:city" type="tns:string"/>
+      </operation>
       <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://model.mdp.etfbl.net" name="getOnlineUsers" qname="operNS:getOnlineUsers" returnQName="retNS:getOnlineUsersReturn" returnType="rtns:User" soapAction="">
-      </operation>
-      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="assignPort" qname="operNS:assignPort" returnQName="retNS:assignPortReturn" returnType="rtns:int" soapAction="">
-      </operation>
-      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" name="registerLogout" qname="operNS:registerLogout" soapAction="">
-        <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://model.mdp.etfbl.net" qname="pns:user" type="tns:User"/>
       </operation>
       <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" name="registerLogin" qname="operNS:registerLogin" soapAction="">
         <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://model.mdp.etfbl.net" qname="pns:user" type="tns:User"/>
       </operation>
-      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://model.mdp.etfbl.net" name="getActiveUser" qname="operNS:getActiveUser" returnQName="retNS:getActiveUserReturn" returnType="rtns:User" soapAction="">
-        <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:city" type="tns:string"/>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="assignPort" qname="operNS:assignPort" returnQName="retNS:assignPortReturn" returnType="rtns:int" soapAction="">
       </operation>
-      <parameter name="allowedMethods" value="getActiveUser getPort verify registerLogout getOnlineUsers assignPort registerLogin"/>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" name="addUser" qname="operNS:addUser" soapAction="">
+        <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://model.mdp.etfbl.net" qname="pns:user" type="tns:User"/>
+      </operation>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteUser" qname="operNS:deleteUser" returnQName="retNS:deleteUserReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://model.mdp.etfbl.net" qname="pns:user" type="tns:User"/>
+      </operation>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" name="registerLogout" qname="operNS:registerLogout" soapAction="">
+        <parameter xmlns:pns="http://soap.czmdp.mdp.etfbl.net" xmlns:tns="http://model.mdp.etfbl.net" qname="pns:user" type="tns:User"/>
+      </operation>
+      <operation xmlns:operNS="http://soap.czmdp.mdp.etfbl.net" xmlns:retNS="http://soap.czmdp.mdp.etfbl.net" xmlns:rtns="http://model.mdp.etfbl.net" name="getAllUsers" qname="operNS:getAllUsers" returnQName="retNS:getAllUsersReturn" returnType="rtns:User" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="getAllUsers getActiveUser getPort addUser deleteUser verify registerLogout getOnlineUsers assignPort registerLogin"/>
 
       <typeMapping xmlns:ns="http://model.mdp.etfbl.net" qname="ns:User" type="java:net.etfbl.mdp.model.User" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
