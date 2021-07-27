@@ -69,7 +69,6 @@ public class User implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -89,11 +88,6 @@ public class User implements Serializable {
 				return false;
 		} else if (!city.equals(other.city))
 			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
@@ -101,6 +95,8 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
+
+
 
 		
 

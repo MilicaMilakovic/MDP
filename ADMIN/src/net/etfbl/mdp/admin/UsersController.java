@@ -29,6 +29,12 @@ public class UsersController implements Initializable {
 	@FXML
 	public Button btn_add;
 	
+	@FXML
+	public TextField usernameDel;
+	@FXML
+	public ChoiceBox<String> locDel;
+	@FXML
+	public Button btn_del;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -44,15 +50,20 @@ public class UsersController implements Initializable {
 				allUsers.appendText("•  " + u.toString()+"\n");
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		locations.getItems().add("Banjaluka");
 		locations.getItems().add("Bijeljina");
 		locations.getItems().add("Sarajevo");
 		locations.getItems().add("Mostar");
-		locations.getItems().add("Trebinje");
+		locations.getItems().add("Trebinje");	
 		
+		locDel.getItems().add("Banjaluka");
+		locDel.getItems().add("Bijeljina");
+		locDel.getItems().add("Sarajevo");
+		locDel.getItems().add("Mostar");
+		locDel.getItems().add("Trebinje");	
 	}
 	
 	public void addUser() {
@@ -95,5 +106,50 @@ public class UsersController implements Initializable {
 			
 		}
 	}
-
+	
+	
+	public void deleteUser() {
+		String username = usernameDel.getText();
+		String city = locDel.getValue();
+		
+		if(!username.equals("") && !city.equals(""))
+		{
+			User user = new User();
+			user.setCity(city);
+			user.setUsername(username);
+			
+			UserServiceServiceLocator locator = new UserServiceServiceLocator();
+			try {
+				UserService service = locator.getUserService();
+				
+				service.deleteUser(user);
+				
+				allUsers.clear();
+				User[] users= service.getAllUsers();
+				
+				for(User u : users) {
+					allUsers.appendText("•  " + u.toString()+"\n");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}			
+			
+			
+		} else {
+			TranslateTransition translateTransition = new TranslateTransition(Duration.millis(200));
+			translateTransition.setNode(btn_del);
+			translateTransition.setFromX(-5);
+			translateTransition.setToX(5);
+			translateTransition.setAutoReverse(true);
+			translateTransition.setCycleCount(3);
+			translateTransition.setInterpolator(Interpolator.EASE_BOTH);
+			translateTransition.play();
+			translateTransition.setOnFinished(e -> {btn_del.setTranslateX(0);});
+			
+		}
+		
+	}
+	
+	
 }

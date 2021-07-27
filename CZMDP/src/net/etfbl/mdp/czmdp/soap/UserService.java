@@ -138,7 +138,8 @@ public class UserService {
 				}
 			}
 			
-			decoder.close();
+			if(decoder!=null)
+				decoder.close();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

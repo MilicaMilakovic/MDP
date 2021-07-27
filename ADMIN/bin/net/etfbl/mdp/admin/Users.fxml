@@ -117,8 +117,8 @@
             <DropShadow color="#00000091" />
          </effect>
       </Line>
-      <TextField layoutX="174.0" layoutY="287.0" prefHeight="25.0" prefWidth="130.0" promptText="id korisnika" style="-fx-background-radius: 0;" />
-      <Button layoutX="186.0" layoutY="329.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="106.0" style="-fx-background-color: #ffda60; -fx-background-radius: 0;" text="Obriši korisnika" textFill="#171717">
+      <TextField fx:id="usernameDel" layoutX="110.0" layoutY="296.0" prefHeight="25.0" prefWidth="130.0" promptText="id korisnika" style="-fx-background-radius: 0;" />
+      <Button fx:id="btn_del" layoutX="187.0" layoutY="337.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="33.0" prefWidth="106.0" style="-fx-background-color: #ffda60; -fx-background-radius: 0;" text="Obriši korisnika" textFill="#171717">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -126,5 +126,6 @@
             <DropShadow color="#000000bd" />
          </effect>
       </Button>
+      <ChoiceBox fx:id="locDel" layoutX="250.0" layoutY="296.0" prefHeight="25.0" prefWidth="130.0" />
    </children>
 </AnchorPane>

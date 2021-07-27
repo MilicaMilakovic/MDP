@@ -131,9 +131,7 @@ public class User  implements java.io.Serializable {
             ((this.city==null && other.getCity()==null) || 
              (this.city!=null &&
               this.city.equals(other.getCity()))) &&
-            ((this.password==null && other.getPassword()==null) || 
-             (this.password!=null &&
-              this.password.equals(other.getPassword()))) &&
+           
             this.port == other.getPort() &&
             ((this.username==null && other.getUsername()==null) || 
              (this.username!=null &&
@@ -152,9 +150,7 @@ public class User  implements java.io.Serializable {
         if (getCity() != null) {
             _hashCode += getCity().hashCode();
         }
-        if (getPassword() != null) {
-            _hashCode += getPassword().hashCode();
-        }
+       
         _hashCode += getPort();
         if (getUsername() != null) {
             _hashCode += getUsername().hashCode();
