@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="contentArea" prefHeight="450.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.admin.HomeController">
+   <children>
+      <ImageView fitHeight="460.0" fitWidth="600.0" layoutX="-89.0" layoutY="-2.0" opacity="0.96" preserveRatio="true">
+         <image>
+            <Image url="@../../../../images/europe.PNG" />
+         </image>
+         <effect>
+            <GaussianBlur radius="4.75" />
+         </effect>
+      </ImageView>
+      <Line endX="390.0" layoutX="109.0" layoutY="66.0" opacity="0.66" startX="-89.75" strokeLineCap="BUTT">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color blue="0.12941177189350128" green="0.12941177189350128" red="0.12941177189350128" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color blue="0.3764705955982208" green="0.8549019694328308" red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Label layoutX="19.0" layoutY="35.0" text="Obavještenja" textFill="#ffda60">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Line endX="394.0" layoutX="105.0" layoutY="14.0" opacity="0.9" startX="-85.75" stroke="#ffda61" strokeWidth="4.0">
+         <effect>
+            <DropShadow color="#00000091" />
+         </effect>
+      </Line>
+      <Rectangle id="rectangle" height="350.0" layoutX="24.0" layoutY="88.0" opacity="0.11" stroke="#3e4042" strokeType="INSIDE" width="477.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color blue="0.25882354378700256" green="0.250980406999588" red="0.24313725531101227" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color blue="0.3799999952316284" green="0.8553333282470703" opacity="0.3391304314136505" red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow height="52.135" radius="25.93875" width="53.62" />
+         </effect>
+      </Rectangle>
+      <TextArea fx:id="notificationField" editable="false" layoutX="35.0" layoutY="118.0" prefHeight="291.0" prefWidth="453.0" stylesheets="@../../../../style/style.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>

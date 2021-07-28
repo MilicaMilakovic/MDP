@@ -20,7 +20,7 @@
 
 <AnchorPane prefHeight="450.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.admin.ScheduleController">
    <children>
-      <ImageView fitHeight="479.0" fitWidth="600.0" layoutX="-89.0" layoutY="-2.0" opacity="0.8" preserveRatio="true">
+      <ImageView fitHeight="479.0" fitWidth="600.0" layoutX="-89.0" layoutY="-2.0" opacity="0.96" preserveRatio="true">
          <image>
             <Image url="@../../../../images/europe.PNG" />
          </image>
@@ -28,7 +28,7 @@
             <GaussianBlur radius="4.75" />
          </effect>
       </ImageView>
-      <Rectangle id="rectangle" height="429.0" layoutX="17.0" layoutY="13.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="475.0">
+      <Rectangle id="rectangle" height="429.0" layoutX="17.0" layoutY="13.0" opacity="0.29" stroke="#3e4042" strokeType="INSIDE" width="475.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
                <stops>

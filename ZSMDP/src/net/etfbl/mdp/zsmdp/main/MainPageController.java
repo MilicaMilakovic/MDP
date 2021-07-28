@@ -27,6 +27,7 @@ import javax.xml.rpc.ServiceException;
 
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -77,9 +78,13 @@ public class MainPageController implements Initializable {
 	public ImageView notificationBell;
 	@FXML
 	public TextArea notificationField;	
+	@FXML
+	public Button msgBtn;
 	
 	public static User user;
 	private static final int CHAT_PORT = 9999; 
+	private boolean sendingFile = false;
+	private File fileToSend;
 	
 	
 	public void showOnlineUsers(String city) {
@@ -163,6 +168,12 @@ public class MainPageController implements Initializable {
 		
 		InetAddress addr;
 		
+		if(locations.getValue()==null || messageField.equals("") || activeUsers.getValue()==null)
+		{
+			moveButton(msgBtn);
+			return;
+		}
+		
 		try {
 			
 			addr = InetAddress.getByName("localhost");
@@ -188,6 +199,7 @@ public class MainPageController implements Initializable {
 			socket.close();
 			out.close();
 			in.close();
+			messageField.clear();
 			
 			
 		} catch (UnknownHostException e) {			
@@ -198,9 +210,22 @@ public class MainPageController implements Initializable {
 			e.printStackTrace();
 		} catch (ServiceException e) {			
 			e.printStackTrace();
+		}		
+		
+	}
+	
+	public void sendFile() {
+		Stage stage = new Stage();
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("ZSMDP File Chooser");
+		
+		File fileSelected = fileChooser.showOpenDialog(stage);
+		
+		if(fileSelected!=null) {
+			fileToSend = fileSelected;
+			messageField.setText(fileToSend.getName());
+			sendingFile = true;
 		}
-		
-		
 	}
 	
 	private void checkForNewMessages() {
@@ -400,5 +425,19 @@ public class MainPageController implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	private void moveButton(Button btn) {		
+		TranslateTransition translateTransition = new TranslateTransition(Duration.millis(200));
+		translateTransition.setNode(btn);
+		translateTransition.setFromX(-5);
+		translateTransition.setToX(5);
+		translateTransition.setAutoReverse(true);
+		translateTransition.setCycleCount(3);
+		translateTransition.setInterpolator(Interpolator.EASE_BOTH);
+		translateTransition.play();
+		translateTransition.setOnFinished(e -> {btn.setTranslateX(0);});		
+	
 	}
 }

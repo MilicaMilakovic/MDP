@@ -30,12 +30,39 @@ public class MainPageController implements Initializable {
 	@FXML
 	public ImageView notificationBell;
 	
+	public static String allNotifications="";
+	
 	 @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		 
+		 Parent root = null;
+			try {
+				
+				root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+				contentArea.getChildren().removeAll();
+				contentArea.getChildren().setAll(root);
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		 checkForNotifications();
 	}
 	 
+	public void home() {
+		Parent root = null;
+		try {
+			
+			root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+			contentArea.getChildren().removeAll();
+			contentArea.getChildren().setAll(root);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void users() {
 		Parent root = null;
 		try {
@@ -101,8 +128,8 @@ public class MainPageController implements Initializable {
 					
 					String notification = new String(packet.getData(),0, packet.getLength());
 					
-					notificationField.appendText(notification+"\n");
-					
+					//notificationField.appendText(notification+"\n");
+					allNotifications += notification+"\n";
 					ringTheBell();
 					
 					try {

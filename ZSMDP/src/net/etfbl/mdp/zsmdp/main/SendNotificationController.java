@@ -41,6 +41,7 @@ public class SendNotificationController {
 				DatagramPacket packet = new DatagramPacket(buffer, buffer.length, group, PORT);
 				socket.send(packet);
 				socket.close();
+				notification.clear();
 				
 			} catch (SocketException e) {				
 				e.printStackTrace();

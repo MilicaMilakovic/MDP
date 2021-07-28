@@ -20,7 +20,7 @@
 
 <AnchorPane prefHeight="452.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.admin.UsersController">
    <children>
-      <ImageView fitHeight="497.0" fitWidth="597.0" layoutX="-86.0" layoutY="-2.0" opacity="0.8" preserveRatio="true">
+      <ImageView fitHeight="497.0" fitWidth="597.0" layoutX="-86.0" layoutY="-2.0" opacity="0.96" preserveRatio="true">
          <image>
             <Image url="@../../../../images/europe.PNG" />
          </image>
@@ -28,7 +28,7 @@
             <GaussianBlur radius="4.75" />
          </effect>
       </ImageView>
-      <Rectangle id="rectangle" height="422.0" layoutX="17.0" layoutY="13.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="476.0">
+      <Rectangle id="rectangle" height="422.0" layoutX="17.0" layoutY="13.0" opacity="0.29" stroke="#3e4042" strokeType="INSIDE" width="476.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
                <stops>
@@ -133,7 +133,7 @@
          <effect>
             <DropShadow />
          </effect></TextField>
-      <Button fx:id="btn_del" layoutX="210.0" layoutY="388.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="33.0" prefWidth="106.0" style="-fx-background-color: #ffda60; -fx-background-radius: 100;" text="Obriši korisnika" textFill="#171717">
+      <Button fx:id="btn_del" layoutX="210.0" layoutY="393.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="33.0" prefWidth="106.0" style="-fx-background-color: #ffda60; -fx-background-radius: 100;" text="Obriši korisnika" textFill="#171717">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
