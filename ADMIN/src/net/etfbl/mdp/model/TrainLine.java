@@ -17,7 +17,7 @@ public class TrainLine implements Serializable {
 	public TrainLine() {
 		super();
 
-		id = serialID++;
+		//id = serialID++;
 		name = "Linija #" + id;
 	}
 

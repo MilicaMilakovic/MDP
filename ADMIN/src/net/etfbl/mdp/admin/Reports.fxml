@@ -17,9 +17,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.admin.ReportsController">
+<AnchorPane prefHeight="450.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.admin.ReportsController">
    <children>
-      <ImageView fitHeight="409.0" fitWidth="533.0" layoutX="-22.0" layoutY="-2.0" opacity="0.8" preserveRatio="true">
+      <ImageView fitHeight="472.0" fitWidth="597.0" layoutX="-86.0" layoutY="-2.0" opacity="0.8" preserveRatio="true">
          <image>
             <Image url="@../../../../images/europe.PNG" />
          </image>
@@ -27,7 +27,7 @@
             <GaussianBlur radius="4.75" />
          </effect>
       </ImageView>
-      <Rectangle id="rectangle" height="369.0" layoutX="17.0" layoutY="13.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="481.0">
+      <Rectangle id="rectangle" height="421.0" layoutX="17.0" layoutY="13.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="482.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
                <stops>
@@ -48,13 +48,13 @@
             <DropShadow height="50.65" radius="25.5675" width="53.62" />
          </effect>
       </Rectangle>
-      <TextArea fx:id="reports" editable="false" layoutX="23.0" layoutY="51.0" prefHeight="170.0" prefWidth="462.0" stylesheets="@../../../../style/style.css" />
+      <TextArea fx:id="reports" editable="false" layoutX="23.0" layoutY="51.0" prefHeight="170.0" prefWidth="468.0" stylesheets="@../../../../style/style.css" />
       <Label layoutX="35.0" layoutY="26.0" text="Izvještaji" textFill="#ffda60">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Line endX="389.0" layoutX="109.0" layoutY="236.0" opacity="0.66" startX="-89.75" strokeLineCap="BUTT">
+      <Line endX="390.0" layoutX="109.0" layoutY="236.0" opacity="0.66" startX="-89.75" strokeLineCap="BUTT">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -72,18 +72,21 @@
             </LinearGradient>
          </stroke>
       </Line>
-      <Label layoutX="35.0" layoutY="245.0" text="Preuzimanje izvještaja" textFill="#ffda60">
+      <Label layoutX="35.0" layoutY="253.0" text="Preuzimanje izvještaja" textFill="#ffda60">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Line endX="393.0" endY="-1.0" layoutX="105.0" layoutY="14.0" opacity="0.9" startX="-85.75" stroke="#ffda61" strokeWidth="4.0">
+      <Line endX="390.25" layoutX="105.0" layoutY="14.0" opacity="0.9" startX="-85.75" stroke="#ffda61" strokeWidth="4.0">
          <effect>
             <DropShadow color="#00000091" />
          </effect>
       </Line>
-      <TextField fx:id="reportID" layoutX="179.0" layoutY="282.0" prefHeight="31.0" prefWidth="132.0" promptText="id izvjestaja" style="-fx-background-radius: 5;" />
-      <Button fx:id="btn" layoutX="216.0" layoutY="330.0" mnemonicParsing="false" onAction="#download" prefHeight="38.0" prefWidth="57.0" style="-fx-background-color: #4E4E4E;">
+      <TextField fx:id="reportID" alignment="CENTER" layoutX="194.0" layoutY="309.0" prefHeight="31.0" prefWidth="132.0" promptText="id izvjestaja" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-text-fill: white;">
+         <effect>
+            <DropShadow />
+         </effect></TextField>
+      <Button fx:id="btn" layoutX="232.0" layoutY="370.0" mnemonicParsing="false" onAction="#download" prefHeight="38.0" prefWidth="57.0" style="-fx-background-color: #4E4E4E;">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>

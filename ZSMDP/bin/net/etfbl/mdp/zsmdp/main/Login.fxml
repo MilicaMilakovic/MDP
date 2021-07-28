@@ -38,11 +38,11 @@
             <DropShadow blurType="GAUSSIAN" height="121.81" radius="59.665" spread="0.14" width="118.85" />
          </effect>
       </Rectangle>
-      <TextField fx:id="username" layoutX="235.0" layoutY="80.0" prefHeight="31.0" prefWidth="160.0" promptText="Username" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-background-insets: 0,0 0 1 0; -fx-border-insets: 0 0 1 0; -fx-border-color: transparent transparent #ffffff transparent;">
+      <TextField fx:id="username" layoutX="235.0" layoutY="80.0" prefHeight="31.0" prefWidth="160.0" promptText="Username" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-background-insets: 0,0 0 1 0; -fx-border-insets: 0 0 1 0; -fx-border-color: transparent transparent #ffffff transparent; -fx-text-fill: white;">
          <font>
             <Font size="13.0" />
          </font></TextField>
-      <PasswordField fx:id="password" layoutX="235.0" layoutY="141.0" prefHeight="31.0" prefWidth="160.0" promptText="Password" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: transparent transparent #ffffff transparent;">
+      <PasswordField fx:id="password" layoutX="235.0" layoutY="141.0" prefHeight="31.0" prefWidth="160.0" promptText="Password" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: transparent transparent #ffffff transparent; -fx-text-fill: white;">
          <font>
             <Font size="13.0" />
          </font></PasswordField>

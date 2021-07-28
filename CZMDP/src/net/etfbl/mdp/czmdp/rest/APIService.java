@@ -3,7 +3,9 @@ package net.etfbl.mdp.czmdp.rest;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -68,5 +70,22 @@ public class APIService {
 			return Response.status(200).entity(station).build();
 		return Response.status(404).build();
 		
+	}
+	
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response addLine(TrainLine line) {
+		
+		service.addLine(line);
+		return Response.status(200).entity(line).build();		
+	}
+	
+	@DELETE
+	@Path("/{id}")
+	public Response remove(@PathParam("id") int id) {
+		service.deleteLine(id);
+		return Response.status(200).build();
 	}
 }

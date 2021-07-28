@@ -17,8 +17,9 @@ public class Main extends Application{
 			
 		 Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
 	     primaryStage.setTitle("CZMDP");
-	    // primaryStage.getIcons().add(new Image(new FileInputStream(new File(file.getAbsolutePath()+File.separator+"icon.png"))));
-	     primaryStage.setScene(new Scene(root, 600, 400));
+	     
+	     primaryStage.getIcons().add(new Image(new FileInputStream(new File("src/images/admin.png" ))));
+	     primaryStage.setScene(new Scene(root, 630, 450));
 	     primaryStage.show();
 	}
 	
