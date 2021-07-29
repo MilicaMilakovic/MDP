@@ -49,6 +49,7 @@ import javafx.stage.Stage;
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
 import net.etfbl.mdp.model.Message;
+import net.etfbl.mdp.model.MyFile;
 import net.etfbl.mdp.model.User;
 import net.etfbl.mdp.rmi.ReportInterface;
 
@@ -83,6 +84,7 @@ public class MainPageController implements Initializable {
 	
 	public static User user;
 	private static final int CHAT_PORT = 9999; 
+	private static final int FILE_PORT = 9998;
 	private boolean sendingFile = false;
 	private File fileToSend;
 	
@@ -174,43 +176,59 @@ public class MainPageController implements Initializable {
 			return;
 		}
 		
-		try {
-			
-			addr = InetAddress.getByName("localhost");
-			Socket socket = new Socket(addr,CHAT_PORT);
-			
-			//PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
-			ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-			ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-
-			UserServiceServiceLocator locator = new UserServiceServiceLocator();
-			UserService service = locator.getUserService();
-			
-			Message message = new Message(user.getUsername(),messageField.getText(),activeUsers.getValue(),service.getPort(activeUsers.getValue()) );
-			
-			Gson gson = new Gson();
-			String message_string = gson.toJson(message);
-			
-			out.writeObject(message_string);
+		String receiver = activeUsers.getValue();		
+		
+			try {
+				
+				addr = InetAddress.getByName("localhost");
+				Socket socket = new Socket(addr,CHAT_PORT);				
+				
+				ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+				ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 	
-			String status=(String)in.readObject();
-			System.out.println(status);
-			
-			socket.close();
-			out.close();
-			in.close();
-			messageField.clear();
-			
-			
-		} catch (UnknownHostException e) {			
-			e.printStackTrace();
-		} catch (IOException e) {			
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (ServiceException e) {			
-			e.printStackTrace();
-		}		
+				UserServiceServiceLocator locator = new UserServiceServiceLocator();
+				UserService service = locator.getUserService();
+				
+				Gson gson = new Gson();
+				String message="";
+				// protokol
+				
+				if(sendingFile)
+				{
+					out.writeObject("FILE");
+					
+					if(((String)in.readObject()).equals("OK")) {
+						byte[] content = Files.readAllBytes(fileToSend.toPath());
+						MyFile file = new MyFile(fileToSend.getName(), content, user.getUsername(), receiver, service.getPort(receiver));
+						message = gson.toJson(file);
+					}
+					
+					
+				} else {
+					out.writeObject("MSG");
+					
+					if(((String)in.readObject()).equals("OK")) {
+						Message msg = new Message(user.getUsername(),messageField.getText(),receiver,service.getPort(receiver) );
+						
+						message = gson.toJson(msg);					
+					}
+				}
+				
+				
+				out.writeObject(message);
+		
+				String status=(String)in.readObject();
+				System.out.println(status);
+				
+				socket.close();
+				out.close();
+				in.close();
+				messageField.clear();
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
 		
 	}
 	
@@ -227,13 +245,12 @@ public class MainPageController implements Initializable {
 			sendingFile = true;
 		}
 	}
-	
+		
 	private void checkForNewMessages() {
 			
 		new Thread(() -> {
 			
-			System.out.println("Pokrenut tred za provjeru pristiglih poruka na portu " + user.getPort());
-			
+			System.out.println("Pokrenut tred za provjeru pristiglih poruka na portu " + user.getPort());			
 			
 			Gson gson = new Gson();
 			
@@ -243,29 +260,45 @@ public class MainPageController implements Initializable {
 				while(true) {					
 					
 				Socket socket = ss.accept();
-				System.out.println("Prihvacen klijent " +socket);
+				//System.out.println("Prihvacen klijent " +socket);
 				
 				ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 				ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
 				
-				String message_string = (String) ois.readObject();
+				String type = (String)ois.readObject();
+				String message_string;
 				
-				Message message = gson.fromJson(message_string, Message.class);
+				if(type.equals("MSG")) {
+					//oos.writeObject("OK");
+					
+					message_string = (String) ois.readObject();
+					Message message = gson.fromJson(message_string, Message.class);
+					//System.out.println("Primljena poruka " +message.getMessage());
+					
+					messageArrived.setVisible(true);	
+					
+					String m = "\uD83D\uDCAC" +" " +message.getSenderUsername() + "   \n\t" + message.getMessage() + "\n";
+					inbox.appendText(m);	
+					
+				} else {
+					//oos.writeObject("OK");
+					message_string = (String) ois.readObject();
+					
+					MyFile file = gson.fromJson(message_string, MyFile.class);
+					//System.out.println("Primljen fajl " + file.getFileName());
+					
+					File f = new File("./files"+File.separator+file.getFileName());
+					Files.write(f.toPath(), file.getContent());
+					
+					messageArrived.setVisible(true);
+					
+					String m = "\uD83D\uDCC1" + " " +  file.getSenderUsername() +"   \n\t" + file.getFileName() + "\n";
+					inbox.appendText(m);
+				}
+				
 				oos.writeObject("Primljenoo");		
-				System.out.println("Primljena poruka " +message.getMessage());
 								
-				messageArrived.setVisible(true);	
-				
-				String m = "\uD83D\uDCAC" +" " +message.getSenderUsername() + "   \n\t" + message.getMessage() + "\n";
-				inbox.appendText(m);
-					
-	
-					
-				try {
-					Thread.sleep(500);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}					
+				Thread.sleep(500);							
 					
 			}
 		}

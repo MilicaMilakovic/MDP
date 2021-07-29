@@ -272,7 +272,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="354.0" layoutY="424.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="47.0" style="-fx-background-color: transparent;">
+      <Button layoutX="354.0" layoutY="424.0" mnemonicParsing="false" onAction="#sendFile" prefHeight="37.0" prefWidth="47.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>

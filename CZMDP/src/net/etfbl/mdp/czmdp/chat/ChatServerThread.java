@@ -13,6 +13,7 @@ import java.net.Socket;
 
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.model.Message;
+import net.etfbl.mdp.model.MyFile;
 import net.etfbl.mdp.model.User;
 
 import com.google.gson.Gson;
@@ -22,54 +23,69 @@ public class ChatServerThread extends Thread {
 	private Socket socket;
 	private ObjectInputStream in;
 	private ObjectOutputStream out;
+	private String type;
 	
 	public ChatServerThread(Socket socket) {
 		this.socket = socket;
-		try {
-			
-			// inicijalizacija ulaznog streama, sa kojeg cu citati poruku
-			
-					
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 		start();
 	}
 	
 	public void run() {
+		
 		try {
 			
 			in = new ObjectInputStream(socket.getInputStream());	
-			out = new ObjectOutputStream(socket.getOutputStream());			
-			
+			out = new ObjectOutputStream(socket.getOutputStream());					
 			
 			System.out.println("Pokrenut ChatServerThread ");
+			
+			type = (String) in.readObject();
+			
 			String message_string;
-			message_string =(String) in.readObject();
-			
+			int port;
 			Gson gson = new Gson();
-			Message message = gson.fromJson(message_string, Message.class);
 			
- 			System.out.println(" Procitana poruka: " + message);
-			
-			out.writeObject("[ChatServer] : poslao si poruku");
-			
+			if(type.equals("MSG")) {
+				
+				out.writeObject("OK");
+				
+				message_string =(String) in.readObject();				
+				Message message = gson.fromJson(message_string, Message.class);				
+				
+				//System.out.println(" Procitana poruka: " + message);
+				
+				out.writeObject("[ChatServer] : poslao si poruku");
+				
+				port = message.getReceiverPort();
+				
+			} else  {
+				
+				out.writeObject("OK");
+				
+				message_string = (String ) in.readObject();
+				MyFile file = gson.fromJson(message_string, MyFile.class);
+				
+				//System.out.println("Primljen fajl: " + file.getFileName());
+				out.writeObject("[ChatServer] : poslao si fajl");
+				
+				port = file.getReceiverPort();
+			}
+								
 			InetAddress addr = InetAddress.getByName("localhost");			
 						
-			Socket sock = new Socket(addr, message.getReceiverPort());
+			Socket sock = new Socket(addr, port);
 			
 			System.out.println(sock);
+			
 			ObjectOutputStream oos = new ObjectOutputStream(sock.getOutputStream());
 			ObjectInputStream ois = new ObjectInputStream(sock.getInputStream());
 			
-
+			oos.writeObject(type);
+			//String status = (String)in.readObject();
 			
-			oos.writeObject(message_string);
-			System.out.println("Server proslijedio poruku korisniku  " + message.getReceiverUsername()+ " na portu " 
-								+message.getReceiverPort());
-
+			//if(status.equals("OK"))
+				oos.writeObject(message_string);	
 			
 		} catch (Exception e) {
 			e.printStackTrace();

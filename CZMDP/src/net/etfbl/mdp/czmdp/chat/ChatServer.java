@@ -18,7 +18,7 @@ public class ChatServer {
 			
 			while(true) {
 				
-				System.out.println("ChatServer ceka klijente...");
+				//System.out.println("ChatServer ceka klijente...");
 				Socket socket = ss.accept();
 				System.out.println("Prihvacen klijent " + socket);
 				
@@ -31,6 +31,7 @@ public class ChatServer {
 		}
 		
 	}
+		
 	
 	public static void main(String[] args) {
 		
