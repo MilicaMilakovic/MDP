@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -38,36 +39,82 @@
             <DropShadow blurType="GAUSSIAN" height="121.81" radius="59.665" spread="0.14" width="118.85" />
          </effect>
       </Rectangle>
-      <TextField fx:id="username" layoutX="235.0" layoutY="80.0" prefHeight="31.0" prefWidth="160.0" promptText="Username" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-background-insets: 0,0 0 1 0; -fx-border-insets: 0 0 1 0; -fx-border-color: transparent transparent #ffffff transparent; -fx-text-fill: white;">
+      <TextField fx:id="username" layoutX="235.0" layoutY="80.0" prefHeight="31.0" prefWidth="160.0" promptText="Username" style="-fx-background-radius: 100; -fx-background-color: transparent; -fx-background-insets: 0,0 0 1 0; -fx-border-insets: 0 0 1 0; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-width: 1.2; -fx-text-fill: white;">
          <font>
             <Font size="13.0" />
-         </font></TextField>
-      <PasswordField fx:id="password" layoutX="235.0" layoutY="141.0" prefHeight="31.0" prefWidth="160.0" promptText="Password" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: transparent transparent #ffffff transparent; -fx-text-fill: white;">
+         </font>
+         <effect>
+            <DropShadow color="#000000cc" />
+         </effect></TextField>
+      <PasswordField fx:id="password" layoutX="235.0" layoutY="140.0" prefHeight="32.0" prefWidth="160.0" promptText="Password" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-width: 1.2; -fx-border-radius: 100; -fx-text-fill: white;">
          <font>
             <Font size="13.0" />
-         </font></PasswordField>
-      <Button fx:id="button" layoutX="220.0" layoutY="295.0" mnemonicParsing="false" onAction="#onClick" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: #FFDA60; -fx-border-radius: 0; -fx-background-radius: 0;" text="Login">
+         </font>
+         <effect>
+            <DropShadow color="#000000cc" />
+         </effect></PasswordField>
+      <Button fx:id="button" layoutX="234.0" layoutY="284.0" mnemonicParsing="false" onAction="#onClick" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #FFDA60; -fx-border-radius: 100; -fx-background-radius: 100;" text="Log In">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <ChoiceBox fx:id="cities" layoutX="235.0" layoutY="209.0" prefHeight="31.0" prefWidth="160.0" style="-fx-background-radius: 0; -fx-border-color: transparent transparent #ffffff transparent; -fx-background-color: transparent; -fx-mark-color: #FFDA60;">
+         </cursor>
+         <font>
+            <Font size="13.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#71723a" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <effect>
+            <DropShadow color="#000000be" />
+         </effect></Button>
+      <ChoiceBox fx:id="cities" layoutX="235.0" layoutY="200.0" prefHeight="32.0" prefWidth="160.0" style="-fx-background-radius: 100; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-background-color: #FFE695; -fx-mark-color: #212121;">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></ChoiceBox>
-      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="201.0" layoutY="83.0" preserveRatio="true">
+         </cursor>
+         <effect>
+            <DropShadow color="#000000cb" />
+         </effect></ChoiceBox>
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="202.0" layoutY="84.0" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../MDP%20resursi/ikonice/user%20(1).png" />
          </image>
+         <effect>
+            <DropShadow color="#000000cc" />
+         </effect>
       </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="26.0" layoutX="201.0" layoutY="144.0" preserveRatio="true">
+      <ImageView fitHeight="200.0" fitWidth="26.0" layoutX="201.0" layoutY="140.0" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../MDP%20resursi/ikonice/closed.png" />
          </image>
+         <effect>
+            <DropShadow color="#000000cb" />
+         </effect>
       </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="26.0" layoutX="207.0" layoutY="212.0" preserveRatio="true">
+      <ImageView fitHeight="200.0" fitWidth="26.0" layoutX="205.0" layoutY="202.0" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../MDP%20resursi/ikonice/location-pin.png" />
          </image>
+         <effect>
+            <DropShadow color="#000000cd" />
+         </effect>
       </ImageView>
+      <Line endX="209.25" layoutX="238.0" layoutY="38.0" startX="-85.75" strokeWidth="4.0">
+         <effect>
+            <DropShadow color="#000000cc" />
+         </effect>
+         <stroke>
+            <LinearGradient endX="1.0" endY="0.780952380952381">
+               <stops>
+                  <Stop color="#ffffff73" />
+                  <Stop color="#ffffff73" offset="0.007662835249042145" />
+                  <Stop color="#fffc5d" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
    </children>
 </AnchorPane>

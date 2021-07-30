@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import javafx.animation.Interpolator;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +24,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
 import net.etfbl.mdp.model.User;
@@ -43,21 +46,15 @@ public class LoginController implements Initializable {
 	
    public void onClick() {
 	
+	   if(username.getText().equals("") || password.getText().equals("") || cities.getValue() == null)
+	   {
+		   moveButton(button);
+		   return;
+	   }
+	   
 	   String name = username.getText();
 	   String pass = password.getText();
-	   String city = cities.getValue();
-	  
-	 /*  try {
-			XMLEncoder encoder = new XMLEncoder(new FileOutputStream(new File("xml.out"),true));
-			encoder.writeObject(new User("milica","milica","Banjaluka"));
-			//encoder.writeObject(new User("aco","aco","Trebinje"));
-			encoder.close();
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}*/
-	   
-	  // System.out.println(name + " " + pass + " " + city);
+	   String city = cities.getValue();		   
 	   
 	   User user = new User(name,pass,city);
 	   
@@ -70,7 +67,10 @@ public class LoginController implements Initializable {
 		if(service.verify(user))
 			System.out.println("dobar");
 		else
-			System.out.println("nije dobro");
+		{
+			moveButton(button);
+			return;
+		}
 		
 		
 		if(service.verify(user))
@@ -115,5 +115,16 @@ public class LoginController implements Initializable {
 		cities.getItems().add("Trebinje");
 	}
 
-    
+	private void moveButton(Button btn) {		
+		TranslateTransition translateTransition = new TranslateTransition(Duration.millis(200));
+		translateTransition.setNode(btn);
+		translateTransition.setFromX(-5);
+		translateTransition.setToX(5);
+		translateTransition.setAutoReverse(true);
+		translateTransition.setCycleCount(3);
+		translateTransition.setInterpolator(Interpolator.EASE_BOTH);
+		translateTransition.play();
+		translateTransition.setOnFinished(e -> {btn.setTranslateX(0);});		
+	
+	}
 }
