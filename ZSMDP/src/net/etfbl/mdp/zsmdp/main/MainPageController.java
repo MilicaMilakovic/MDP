@@ -23,6 +23,9 @@ import java.rmi.registry.Registry;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import javax.net.ssl.SSLServerSocketFactory;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 import javax.xml.rpc.ServiceException;
 
 import javafx.animation.Interpolator;
@@ -83,11 +86,13 @@ public class MainPageController implements Initializable {
 	public Button msgBtn;
 	
 	public static User user;
-	private static final int CHAT_PORT = 9999; 
+	private static final int CHAT_PORT = 8443; 
 	private static final int FILE_PORT = 9998;
 	private boolean sendingFile = false;
 	private File fileToSend;
 	
+	private static final String KEY_STORE_PATH ="./keystore.jks";
+	private static final String KEY_STORE_PASSWORD = "securemdp";
 	
 	public void showOnlineUsers(String city) {
 		User[] users = null;
@@ -116,6 +121,12 @@ public class MainPageController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 			
+				
+		System.setProperty("javax.net.ssl.keyStore", KEY_STORE_PATH);
+		System.setProperty("javax.net.ssl.keyStorePassword", KEY_STORE_PASSWORD);
+		System.setProperty("javax.net.ssl.trustStore", KEY_STORE_PATH);
+		System.setProperty("javax.net.ssl.trustStorePassword", KEY_STORE_PASSWORD);
+		
 		username.setText(user.getUsername());
 		location.setText(user.getCity());		
 		
@@ -170,6 +181,9 @@ public class MainPageController implements Initializable {
 		
 		InetAddress addr;
 		
+//		System.setProperty("javax.net.ssl.trustStore", KEY_STORE_PATH);
+//		System.setProperty("javax.net.ssl.trustStorePassword", KEY_STORE_PASSWORD);
+		
 		if(locations.getValue()==null || messageField.equals("") || activeUsers.getValue()==null)
 		{
 			moveButton(msgBtn);
@@ -181,7 +195,10 @@ public class MainPageController implements Initializable {
 			try {
 				
 				addr = InetAddress.getByName("localhost");
-				Socket socket = new Socket(addr,CHAT_PORT);				
+				//Socket socket = new Socket(addr,CHAT_PORT);				
+				
+				SSLSocketFactory sf = (SSLSocketFactory) SSLSocketFactory.getDefault();
+				SSLSocket socket = (SSLSocket) sf.createSocket(addr, CHAT_PORT);
 				
 				ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
 				ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
@@ -247,19 +264,27 @@ public class MainPageController implements Initializable {
 	}
 		
 	private void checkForNewMessages() {
-			
+		
+//		System.setProperty("javax.net.ssl.keyStore", KEY_STORE_PATH);
+//		System.setProperty("javax.net.ssl.keyStorePassword", KEY_STORE_PASSWORD);
+		
 		new Thread(() -> {
 			
 			System.out.println("Pokrenut tred za provjeru pristiglih poruka na portu " + user.getPort());			
 			
 			Gson gson = new Gson();
 			
+			SSLServerSocketFactory ssf = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
+			
 			try {
-				ServerSocket ss = new ServerSocket(user.getPort());
+//				ServerSocket ss = new ServerSocket(user.getPort());
+				
+				ServerSocket ss = ssf.createServerSocket(user.getPort());
 				
 				while(true) {					
 					
-				Socket socket = ss.accept();
+//				Socket socket = ss.accept();
+				SSLSocket socket = (SSLSocket) ss.accept();
 				//System.out.println("Prihvacen klijent " +socket);
 				
 				ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());

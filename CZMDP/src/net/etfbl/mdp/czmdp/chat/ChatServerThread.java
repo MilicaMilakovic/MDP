@@ -11,6 +11,9 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
+
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.model.Message;
 import net.etfbl.mdp.model.MyFile;
@@ -53,7 +56,7 @@ public class ChatServerThread extends Thread {
 				message_string =(String) in.readObject();				
 				Message message = gson.fromJson(message_string, Message.class);				
 				
-				//System.out.println(" Procitana poruka: " + message);
+//				System.out.println(" Procitana poruka: " + message);
 				
 				out.writeObject("[ChatServer] : poslao si poruku");
 				
@@ -66,7 +69,7 @@ public class ChatServerThread extends Thread {
 				message_string = (String ) in.readObject();
 				MyFile file = gson.fromJson(message_string, MyFile.class);
 				
-				//System.out.println("Primljen fajl: " + file.getFileName());
+//				System.out.println("Primljen fajl: " + file.getFileName());
 				out.writeObject("[ChatServer] : poslao si fajl");
 				
 				port = file.getReceiverPort();
@@ -74,7 +77,9 @@ public class ChatServerThread extends Thread {
 								
 			InetAddress addr = InetAddress.getByName("localhost");			
 						
-			Socket sock = new Socket(addr, port);
+			//Socket sock = new Socket(addr, port);
+			SSLSocketFactory sf = (SSLSocketFactory) SSLSocketFactory.getDefault();
+			SSLSocket sock = (SSLSocket) sf.createSocket(addr,port);
 			
 			System.out.println(sock);
 			
