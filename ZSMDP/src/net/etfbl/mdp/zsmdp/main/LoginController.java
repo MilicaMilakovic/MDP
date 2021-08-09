@@ -7,8 +7,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
+import java.security.SecureRandom;
+import java.security.spec.KeySpec;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.ResourceBundle;
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
@@ -55,14 +61,21 @@ public class LoginController implements Initializable {
 	   String name = username.getText();
 	   String pass = password.getText();
 	   String city = cities.getValue();		   
-	   
-	   User user = new User(name,pass,city);
-	   
+	   	   	 	   
 	   UserServiceServiceLocator locator = new UserServiceServiceLocator();
 	   
-	   try {
+	   try {	  
 		   
 		UserService service = locator.getUserService();
+		
+		SecureRandom random = new SecureRandom();
+		byte[] salt = new byte[16];
+		KeySpec spec = new PBEKeySpec(pass.toCharArray(), salt, 65536, 128);
+		SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+		
+		byte[] hash = factory.generateSecret(spec).getEncoded();
+		
+		User user = new User(name, Base64.getEncoder().encodeToString(hash), city);		
 		
 		if(service.verify(user))
 			System.out.println("dobar");

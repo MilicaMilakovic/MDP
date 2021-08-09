@@ -20,7 +20,7 @@
    <children>
       <ImageView fitHeight="466.0" fitWidth="654.0" layoutX="-33.0" layoutY="-7.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../MDP%20resursi/map3.PNG" />
+            <Image url="@../../../../../../resources/map3.PNG" />
          </image>
          <effect>
             <GaussianBlur radius="1.75" />
@@ -57,7 +57,7 @@
          <graphic>
             <ImageView fitHeight="44.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/send%20(1).png" />
+                  <Image url="@../../../../../../resources/send.png" />
                </image>
             </ImageView>
          </graphic>

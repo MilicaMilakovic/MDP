@@ -105,6 +105,10 @@ public class MainPageController implements Initializable {
 		}
 	}
 	
+	public void deleteAll() {
+		notificationField.clear();
+	}
+	
 	public void shutDown() {
 		
 		System.exit(0);

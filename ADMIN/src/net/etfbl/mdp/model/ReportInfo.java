@@ -37,7 +37,7 @@ public class ReportInfo {
 	@Override
 	public String toString() {
 		return "Izvjestaj #" + id + "\n\t  naziv: " + fileName + "  | posiljalac: " + sender + "  | vrijeme: " + timeStamp
-				+ "  |  velicina: " + size ;
+				+ "  |  velicina: " + size;
 	}
 
 

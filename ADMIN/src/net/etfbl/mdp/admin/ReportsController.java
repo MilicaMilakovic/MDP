@@ -12,6 +12,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ResourceBundle;
 
+import com.google.gson.Gson;
+
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -21,6 +23,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
 import net.etfbl.mdp.model.Report;
+import net.etfbl.mdp.model.ReportInfo;
 import net.etfbl.mdp.rmi.ReportInterface;
 
 public class ReportsController implements Initializable {
@@ -35,12 +38,15 @@ public class ReportsController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		Gson gson = new Gson();
+		
 		try {
 			Registry registry = LocateRegistry.getRegistry(1099);
 			ReportInterface server = (ReportInterface) registry.lookup("ReportServer");
 			
 			for(String s : server.getAllReports()) {
-				reports.appendText("• "+s+"\n");
+				ReportInfo info = gson.fromJson(s, ReportInfo.class); 
+				reports.appendText("• "+info.toString()+"\n");
 			}
 			
 		} catch (RemoteException | NotBoundException e) {

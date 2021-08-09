@@ -50,7 +50,7 @@
       </TextArea>
       <ImageView fitHeight="611.0" fitWidth="437.0" layoutX="474.0" layoutY="-8.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../MDP%20resursi/map5.PNG" />
+            <Image url="@../../../../../../resources/map5.PNG" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#212121" height="611.0" layoutX="-13.0" layoutY="-12.0" stroke="#212121" strokeType="INSIDE" width="115.0">
@@ -64,12 +64,12 @@
       </Label>
       <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="360.0" layoutY="14.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../MDP%20resursi/ikonice/placeholder.png" />
+            <Image url="@../../../../../../resources/placeholder.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="50.0" fitWidth="56.0" layoutX="19.0" layoutY="22.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../MDP%20resursi/ikonice/output-onlinepngtools%20(2).png" />
+            <Image url="@../../../../../../resources/logo.png" />
          </image>
       </ImageView>
       <Label layoutX="23.0" layoutY="72.0" text="ZSMDP" textFill="#6a6868">
@@ -79,7 +79,7 @@
       </Label>
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="26.0" layoutY="510.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../MDP%20resursi/ikonice/user.png" />
+            <Image url="@../../../../../../resources/user.png" />
          </image>
          <effect>
             <DropShadow color="#403d31" height="34.91" radius="17.185" width="35.83" />
@@ -173,7 +173,7 @@
       </Label>
       <ImageView fitHeight="18.0" fitWidth="17.0" layoutX="128.0" layoutY="349.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../MDP%20resursi/ikonice/chat.png" />
+            <Image url="@../../../../../../resources/chat.png" />
          </image>
       </ImageView>
       <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="550.0" prefHeight="17.0" prefWidth="39.0" textAlignment="CENTER" textFill="#ebebeb" wrapText="true" />
@@ -190,7 +190,7 @@
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/log-out.png" />
+                  <Image url="@../../../../../../resources/log-out.png" />
                </image>
             </ImageView>
          </graphic>
@@ -205,7 +205,7 @@
          <graphic>
             <ImageView fitHeight="38.0" fitWidth="42.0" opacity="0.71" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/message%20(1).png" />
+                  <Image url="@../../../../../../resources/message.png" />
                </image>
             </ImageView>
          </graphic>
@@ -220,7 +220,7 @@
          <graphic>
             <ImageView fitHeight="43.0" fitWidth="38.0" opacity="0.71" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/file.png" />
+                  <Image url="@../../../../../../resources/file.png" />
                </image>
             </ImageView>
          </graphic>
@@ -232,7 +232,7 @@
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="38.0" opacity="0.71" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/train%20(2).png" />
+                  <Image url="@../../../../../../resources/train.png" />
                </image>
             </ImageView>
          </graphic>
@@ -262,7 +262,7 @@
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/send%20(1).png" />
+                  <Image url="@../../../../../../resources/send.png" />
                </image>
                <effect>
                   <DropShadow color="#00000082" height="9.14" radius="4.07" spread="0.15" width="9.14" />
@@ -276,7 +276,7 @@
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/clip%20(1).png" />
+                  <Image url="@../../../../../../resources/clip.png" />
                </image>
                <effect>
                   <DropShadow color="#00000081" height="9.14" radius="4.07" spread="0.15" width="9.14" />
@@ -320,7 +320,7 @@
          <graphic>
             <ImageView fitHeight="38.0" fitWidth="42.0" opacity="0.71" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/timetable.png" />
+                  <Image url="@../../../../../../resources/timetable.png" />
                </image>
             </ImageView>
          </graphic>
@@ -363,13 +363,13 @@
       </Rectangle>
       <ImageView fx:id="notificationBell" fitHeight="20.0" fitWidth="24.0" layoutX="129.0" layoutY="311.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../MDP%20resursi/ikonice/notification%20(1).png" />
+            <Image url="@../../../../../../resources/notification.png" />
          </image>
          <effect>
             <DropShadow />
          </effect>
       </ImageView>
-      <TextArea fx:id="notificationField" disable="true" layoutX="168.0" layoutY="299.0" prefHeight="20.0" prefWidth="295.0" promptText="Obavještenja" style="-fx-text-alignment: center;" stylesheets="@../../../../../style/style.css">
+      <TextArea fx:id="notificationField" disable="true" editable="false" layoutX="168.0" layoutY="299.0" prefHeight="45.0" prefWidth="287.0" promptText="Obavještenja" style="-fx-text-alignment: center;" stylesheets="@../../../../../style/style.css">
          <font>
             <Font size="13.0" />
          </font></TextArea>

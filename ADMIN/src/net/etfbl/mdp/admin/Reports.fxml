@@ -48,7 +48,7 @@
             <DropShadow height="50.65" radius="25.5675" width="53.62" />
          </effect>
       </Rectangle>
-      <TextArea fx:id="reports" editable="false" layoutX="23.0" layoutY="51.0" prefHeight="170.0" prefWidth="468.0" stylesheets="@../../../../style/style.css" />
+      <TextArea fx:id="reports" editable="false" layoutX="18.0" layoutY="51.0" prefHeight="170.0" prefWidth="480.0" stylesheets="@../../../../style/style.css" />
       <Label layoutX="35.0" layoutY="26.0" text="Izvještaji" textFill="#ffda60">
          <font>
             <Font name="System Bold" size="14.0" />

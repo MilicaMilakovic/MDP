@@ -67,7 +67,7 @@
             </LinearGradient>
          </stroke>
       </Line>
-      <TextArea fx:id="allUsers" editable="false" layoutX="35.0" layoutY="43.0" prefHeight="87.0" prefWidth="445.0" stylesheets="@../../../../style/style.css" />
+      <TextArea fx:id="allUsers" editable="false" layoutX="23.0" layoutY="43.0" prefHeight="87.0" prefWidth="467.0" stylesheets="@../../../../style/style.css" />
       <Label layoutX="35.0" layoutY="26.0" text="Registrovani korisnici" textFill="#ffda60">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -129,7 +129,7 @@
             <DropShadow color="#00000091" />
          </effect>
       </Line>
-      <TextField fx:id="usernameDel" alignment="CENTER" layoutX="123.0" layoutY="345.0" prefHeight="25.0" prefWidth="130.0" promptText="id korisnika" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-text-fill: white;">
+      <TextField fx:id="usernameDel" alignment="CENTER" layoutX="123.0" layoutY="345.0" prefHeight="25.0" prefWidth="130.0" promptText="username" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-text-fill: white;">
          <effect>
             <DropShadow />
          </effect></TextField>

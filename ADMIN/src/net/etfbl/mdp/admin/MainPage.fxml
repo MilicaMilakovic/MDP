@@ -85,6 +85,14 @@
                   <Font size="14.0" />
                </font>
             </TextArea>
+            <Button layoutX="423.0" layoutY="33.0" mnemonicParsing="false" onAction="#deleteAll" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: transparent; -fx-border-radius: 100; -fx-background-radius: 100; -fx-border-color: #ffda60;" text="Obriši sve" textFill="#ffda60">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#212121" height="458.0" layoutX="-8.0" layoutY="-2.0" stroke="#212121" strokeType="INSIDE" width="130.0">

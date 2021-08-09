@@ -22,7 +22,7 @@
    <children>
       <ImageView fitHeight="408.0" fitWidth="600.0" layoutX="3.0" layoutY="-3.0" opacity="0.22">
          <image>
-            <Image url="@../../../../../../../../MDP%20resursi/map3.PNG" />
+            <Image url="@../../../../../../resources/map3.PNG" />
          </image>
          <effect>
             <GaussianBlur />
@@ -70,9 +70,9 @@
       </Line>
       <Button fx:id="btn" layoutX="273.0" layoutY="106.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="56.0" style="-fx-background-color: #4E4E4E;">
          <graphic>
-            <ImageView fitHeight="33.0" fitWidth="30.0" opacity="0.78" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="28.0" opacity="0.78" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../MDP%20resursi/ikonice/checked.png" />
+                  <Image url="@../../../../../../resources/checked.png" />
                </image>
             </ImageView>
          </graphic>
@@ -83,7 +83,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="line" alignment="CENTER" layoutX="226.0" layoutY="63.0" style="-fx-background-color: #ebebeb; -fx-background-radius: 100;" />
+      <TextField fx:id="line" alignment="CENTER" layoutX="226.0" layoutY="63.0" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-image-width: 1.5; -fx-text-fill: white; -fx-background-radius: 100;" />
       <Label layoutX="273.0" layoutY="34.0" text="Broj linije" textFill="#ffda60">
          <font>
             <Font name="System Bold" size="12.0" />

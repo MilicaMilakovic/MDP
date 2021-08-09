@@ -19,5 +19,7 @@ public class HomeController implements Initializable{
 		notificationField.setText(MainPageController.allNotifications);
 		
 	}
-
+	public void deleteAll() {
+		notificationField.clear();
+	}
 }

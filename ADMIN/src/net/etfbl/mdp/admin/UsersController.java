@@ -1,7 +1,13 @@
 package net.etfbl.mdp.admin;
 
 import java.net.URL;
+import java.security.SecureRandom;
+import java.security.spec.KeySpec;
+import java.util.Base64;
 import java.util.ResourceBundle;
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
@@ -72,13 +78,23 @@ public class UsersController implements Initializable {
 		String password = passwordField.getText();
 		String city = locations.getValue();
 		
-		if(!username.equals("") && !password.equals("") && !city.equals("") ) {
+		if(!username.equals("") && !password.equals("") && !city.equals("") ) {			
+			
 			
 			UserServiceServiceLocator locator = new UserServiceServiceLocator();
 			try {
+				
 				UserService service = locator.getUserService();
 				
-				User user = new User(username, password, city);
+				SecureRandom random = new SecureRandom();
+				byte[] salt = new byte[16];
+				KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+				SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+				
+				byte[] hash = factory.generateSecret(spec).getEncoded();
+				
+				User user = new User(username, Base64.getEncoder().encodeToString(hash), city);
+				
 				service.addUser(user);
 				
 				allUsers.clear();
@@ -88,10 +104,15 @@ public class UsersController implements Initializable {
 					allUsers.appendText("•  " + u.toString()+"\n");
 				}
 				
+				
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			
+			usernameField.clear();
+			passwordField.clear();
+			locations.getSelectionModel().clearSelection();
 			
 		}  else {
 			TranslateTransition translateTransition = new TranslateTransition(Duration.millis(200));
@@ -135,6 +156,8 @@ public class UsersController implements Initializable {
 				e.printStackTrace();
 			}			
 			
+			usernameDel.clear();
+			locDel.getSelectionModel().clearSelection();
 			
 		} else {
 			TranslateTransition translateTransition = new TranslateTransition(Duration.millis(200));
