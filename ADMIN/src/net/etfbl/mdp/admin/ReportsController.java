@@ -11,6 +11,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import com.google.gson.Gson;
 
@@ -22,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.Report;
 import net.etfbl.mdp.model.ReportInfo;
 import net.etfbl.mdp.rmi.ReportInterface;
@@ -50,8 +52,7 @@ public class ReportsController implements Initializable {
 			}
 			
 		} catch (RemoteException | NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 		
@@ -78,12 +79,11 @@ public class ReportsController implements Initializable {
 				}
 				
 			} catch (RemoteException e) {				
-				e.printStackTrace();
+	            MyLogger.log(Level.WARNING,e.getMessage(),e);
 			} catch (NotBoundException e) {				
-				e.printStackTrace();
+	            MyLogger.log(Level.WARNING,e.getMessage(),e);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	            MyLogger.log(Level.WARNING,e.getMessage(),e);
 			}
 			
 			

@@ -2,6 +2,7 @@ package net.etfbl.mdp.czmdp.chat;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Level;
 
 import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
@@ -9,6 +10,7 @@ import javax.net.ssl.SSLSocketFactory;
 
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.model.Message;
+import net.etfbl.mdp.model.MyLogger;
 
 public class ChatServer {
 
@@ -44,15 +46,16 @@ public class ChatServer {
 			}			
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			 MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 	}
 		
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		System.out.println("Chat server pokrenut...");
+		MyLogger.setup();
 		processMessages();
 	}
 }

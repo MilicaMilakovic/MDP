@@ -15,8 +15,11 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+
 import com.google.gson.Gson;
 
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.Report;
 import net.etfbl.mdp.model.ReportInfo;
 
@@ -55,7 +58,7 @@ public class ReportServer implements ReportInterface {
 			System.out.println("Izvjestaj " + fileName + " arhiviran.");
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 	}	
@@ -75,7 +78,7 @@ public class ReportServer implements ReportInterface {
 			 report = new Report(content, name);
 			 
 		 } catch(Exception e) {
-			 e.printStackTrace();
+			 MyLogger.log(Level.WARNING,e.getMessage(),e);
 		 }
 		
 		return report;
@@ -105,7 +108,7 @@ public class ReportServer implements ReportInterface {
 					}				
 					
 				} catch(Exception e) {
-					e.printStackTrace();
+					MyLogger.log(Level.WARNING,e.getMessage(),e);
 				}
 			}
 		}
@@ -134,7 +137,7 @@ public class ReportServer implements ReportInterface {
 					jsonInfo.add(content);
 				} catch (Exception e) {
 					
-					e.printStackTrace();
+					MyLogger.log(Level.WARNING,e.getMessage(),e);
 				}
 			}
 		}
@@ -147,9 +150,12 @@ public class ReportServer implements ReportInterface {
 		System.setProperty("java.security.policy", PATH + File.separator + "server_policyfile.txt");
 		if(System.getSecurityManager() == null ) {
 			System.setSecurityManager(new SecurityManager());
-		}
+		}				
 		
 		try {
+			
+			MyLogger.setup();
+			
 			ReportServer server = new ReportServer();
 			ReportInterface stub = (ReportInterface) UnicastRemoteObject.exportObject(server,0);
 			Registry registry = LocateRegistry.createRegistry(1099);
@@ -157,7 +163,7 @@ public class ReportServer implements ReportInterface {
 			System.out.println("ReportServer pokrenut");
 			
 		} catch(Exception e) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 	}
 }

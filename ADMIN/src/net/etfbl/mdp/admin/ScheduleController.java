@@ -9,6 +9,7 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import com.google.gson.Gson;
 
@@ -21,6 +22,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.TrainLine;
 import net.etfbl.mdp.model.TrainStation;
 
@@ -76,7 +78,8 @@ public class ScheduleController implements Initializable {
 			schedule.setText(body);
 			
 		} catch(Exception e) {
-			e.printStackTrace();
+            MyLogger.log(Level.WARNING,e.getMessage(),e);
+
 		}
 	}
 
@@ -134,7 +137,8 @@ public class ScheduleController implements Initializable {
 				lineIDField.clear();
 				
 			} catch(Exception e) {
-				e.printStackTrace();
+	            MyLogger.log(Level.WARNING,e.getMessage(),e);
+
 			}
 		} else 
 			moveButton(line_btn);
@@ -158,7 +162,8 @@ public class ScheduleController implements Initializable {
 				getSchedule();
 				lineID.clear();
 			} catch(Exception e ) {
-				e.printStackTrace();
+	            MyLogger.log(Level.WARNING,e.getMessage(),e);
+
 			}
 			
 		}else 

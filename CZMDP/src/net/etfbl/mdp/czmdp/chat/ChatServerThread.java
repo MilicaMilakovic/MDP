@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.logging.Level;
 
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
@@ -17,6 +18,7 @@ import javax.net.ssl.SSLSocketFactory;
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.model.Message;
 import net.etfbl.mdp.model.MyFile;
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.User;
 
 import com.google.gson.Gson;
@@ -93,7 +95,7 @@ public class ChatServerThread extends Thread {
 				oos.writeObject(message_string);	
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			 MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 	}

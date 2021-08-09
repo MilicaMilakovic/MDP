@@ -12,6 +12,7 @@ import java.security.spec.KeySpec;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -33,6 +34,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.User;
 
 public class LoginController implements Initializable {
@@ -110,8 +112,7 @@ public class LoginController implements Initializable {
 				
 		
 	} catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
+		 MyLogger.log(Level.WARNING,e.getMessage(),e);
 	}
 	  
    }

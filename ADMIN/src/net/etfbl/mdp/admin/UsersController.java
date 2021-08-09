@@ -5,6 +5,7 @@ import java.security.SecureRandom;
 import java.security.spec.KeySpec;
 import java.util.Base64;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -20,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.util.Duration;
 import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.User;
 
 public class UsersController implements Initializable {
@@ -56,7 +58,8 @@ public class UsersController implements Initializable {
 				allUsers.appendText("•  " + u.toString()+"\n");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+            MyLogger.log(Level.WARNING,e.getMessage(),e);
+
 		}
 		
 		locations.getItems().add("Banjaluka");
@@ -107,7 +110,8 @@ public class UsersController implements Initializable {
 				
 				
 			} catch (Exception e) {
-				e.printStackTrace();
+	            MyLogger.log(Level.WARNING,e.getMessage(),e);
+
 			}
 			
 			usernameField.clear();
@@ -153,7 +157,8 @@ public class UsersController implements Initializable {
 				}
 				
 			} catch(Exception e) {
-				e.printStackTrace();
+	            MyLogger.log(Level.WARNING,e.getMessage(),e);
+
 			}			
 			
 			usernameDel.clear();

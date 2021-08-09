@@ -4,10 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Set;
+import java.util.logging.Level;
 
 import com.google.gson.Gson;
 
 import net.etfbl.mdp.model.DataSource;
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.TrainLine;
 import net.etfbl.mdp.model.TrainStation;
 
@@ -20,6 +22,13 @@ public class ScheduleService {
 	DataSource dataSource = DataSource.getInstace();
 	JedisPool pool = new JedisPool();
 	
+	static {
+		try {
+			MyLogger.setup();
+		} catch(Exception e) {
+			 MyLogger.log(Level.WARNING,e.getMessage(),e);
+		}
+	}
 	public String getSchedule(){	
 		
 		String s = "";
@@ -82,7 +91,7 @@ public class ScheduleService {
 			}				
 			
 		}catch(Exception e) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 		pool.close();
@@ -113,7 +122,7 @@ public class ScheduleService {
 			
 			
 		}catch(Exception e ) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 		return false;
@@ -146,7 +155,7 @@ public class ScheduleService {
 			return line.getTrainLine().get(location);			
 			
 		}catch(Exception e ) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 		pool.close();		
@@ -180,7 +189,7 @@ public class ScheduleService {
 			jedis.save();
 			
 		}catch(Exception e ) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		pool.close();
 	}
@@ -192,7 +201,7 @@ public class ScheduleService {
 			jedis.del(""+id);
 			jedis.save();
 		}catch (Exception e) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 		pool.close();

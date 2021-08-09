@@ -22,6 +22,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
@@ -53,6 +54,7 @@ import net.etfbl.mdp.czmdp.soap.UserService;
 import net.etfbl.mdp.czmdp.soap.UserServiceServiceLocator;
 import net.etfbl.mdp.model.Message;
 import net.etfbl.mdp.model.MyFile;
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.User;
 import net.etfbl.mdp.rmi.ReportInterface;
 
@@ -112,7 +114,7 @@ public class MainPageController implements Initializable {
 			}
 			
 		} catch(Exception e) {
-			e.printStackTrace();
+			 MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}			
 	}
 	
@@ -138,7 +140,7 @@ public class MainPageController implements Initializable {
 			user.setPort(service.assignPort());
 			
 		} catch (Exception e) {			
-			e.printStackTrace();
+			 MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 		System.out.println(user);
@@ -170,7 +172,7 @@ public class MainPageController implements Initializable {
 			service.registerLogout(user);
 			
 		} catch(Exception e) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		Stage stage = (Stage)logOutBtn.getScene().getWindow();
 		stage.close();
@@ -244,7 +246,7 @@ public class MainPageController implements Initializable {
 				
 				
 			} catch (Exception e) {
-				e.printStackTrace();
+				MyLogger.log(Level.WARNING,e.getMessage(),e);
 			}		
 		
 	}
@@ -328,7 +330,7 @@ public class MainPageController implements Initializable {
 			}
 		}
 			catch(Exception e) {
-				e.printStackTrace();
+				 MyLogger.log(Level.WARNING,e.getMessage(),e);
 			}
 		}).start();
 	}
@@ -369,7 +371,7 @@ public class MainPageController implements Initializable {
 				server.uploadReport(fileSelected.getName(), fileContent, user.getUsername());
 				
 			} catch (Exception e) {
-				e.printStackTrace();
+			 MyLogger.log(Level.WARNING,e.getMessage(),e);
 			}
 					
 		}
@@ -402,7 +404,7 @@ public class MainPageController implements Initializable {
 			primaryStage.show();
 		
 		} catch (IOException e) {
-			e.printStackTrace();
+			 MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 	}
@@ -431,12 +433,12 @@ public class MainPageController implements Initializable {
 					try {
 						Thread.sleep(500);
 					} catch (Exception e) {
-						e.printStackTrace();
+									 MyLogger.log(Level.WARNING,e.getMessage(),e);
 					}
 				}
 				
 			} catch (IOException e) {				
-				e.printStackTrace();
+							 MyLogger.log(Level.WARNING,e.getMessage(),e);
 			}
 		}).start();
 	}
@@ -459,7 +461,7 @@ public class MainPageController implements Initializable {
 			primaryStage.show();
 		
 		} catch (IOException e) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		
 	}
@@ -481,7 +483,7 @@ public class MainPageController implements Initializable {
 			primaryStage.show();
 		
 		} catch (IOException e) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 	}
 	

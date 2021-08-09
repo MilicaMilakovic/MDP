@@ -9,11 +9,13 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import net.etfbl.mdp.model.MyLogger;
 
 public class TrainScheduleController implements Initializable {
 
@@ -39,8 +41,7 @@ public class TrainScheduleController implements Initializable {
 			
 			timetable.setText(json);
 		} catch (URISyntaxException | IOException | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 	}
 }

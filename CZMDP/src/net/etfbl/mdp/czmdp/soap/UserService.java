@@ -10,7 +10,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
 
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.User;
 
 public class UserService {
@@ -20,6 +22,13 @@ public class UserService {
 	public static int count;
 	private static int port = 9000;
 	
+	static {
+		try {
+			MyLogger.setup();
+		}catch (Exception e) {
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
+		}
+	}
 	// svi online korisnici
 	public static ArrayList<User> onlineUsers = new ArrayList<User>();
 	
@@ -55,7 +64,7 @@ public class UserService {
 			decoder.close();
 		} catch (FileNotFoundException e) {
 			
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 		return false;
 	}	
@@ -93,7 +102,7 @@ public class UserService {
 					allUsers.add(user);
 					
 				} catch (FileNotFoundException e) {
-					e.printStackTrace();
+					MyLogger.log(Level.WARNING,e.getMessage(),e);
 				}
 			}
 			
@@ -114,7 +123,7 @@ public class UserService {
 			encoder.close();
 			
 		} catch (FileNotFoundException e) {		
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}		
 	}
 	
@@ -142,7 +151,7 @@ public class UserService {
 				decoder.close();
 			
 		} catch(Exception e) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 
 		return false;			

@@ -12,6 +12,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import com.google.gson.Gson;
 
@@ -23,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
+import net.etfbl.mdp.model.MyLogger;
 import net.etfbl.mdp.model.TrainStation;
 
 public class TrainPassedController implements Initializable {
@@ -74,13 +76,14 @@ public class TrainPassedController implements Initializable {
 				
 				System.out.println(response2.body());
 				getSchedule();
+				line.clear();
 				
 			} catch (URISyntaxException e) {				
-				e.printStackTrace();
+				MyLogger.log(Level.WARNING,e.getMessage(),e);
 			} catch (IOException e) {				
-				e.printStackTrace();
+				MyLogger.log(Level.WARNING,e.getMessage(),e);
 			} catch (InterruptedException e) {				
-				e.printStackTrace();
+				MyLogger.log(Level.WARNING,e.getMessage(),e);
 			}
 			
 			
@@ -111,7 +114,7 @@ public class TrainPassedController implements Initializable {
 			schedule.setText(json);
 			
 		} catch (URISyntaxException | IOException | InterruptedException e) {
-			e.printStackTrace();
+			MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 	}
 	

@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import net.etfbl.mdp.model.MyLogger;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -30,6 +31,9 @@ public class Main extends Application {
       
         primaryStage.getIcons().add(new Image(new FileInputStream(new File(resources+File.separator+"icon.png"))));
         primaryStage.setScene(new Scene(root, 600, 400));
+        
+        MyLogger.setup();
+        
         primaryStage.show();
     }
 

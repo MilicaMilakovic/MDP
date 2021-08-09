@@ -49,7 +49,7 @@
             <DropShadow height="50.65" radius="25.5675" width="53.62" />
          </effect>
       </Rectangle>
-      <Line endX="383.0" layoutX="109.0" layoutY="134.0" opacity="0.66" startX="-89.75" strokeLineCap="BUTT">
+      <Line endX="383.0" layoutX="109.0" layoutY="152.0" opacity="0.66" startX="-89.75" strokeLineCap="BUTT">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -67,7 +67,7 @@
             </LinearGradient>
          </stroke>
       </Line>
-      <Line endX="385.0" layoutX="107.0" layoutY="349.0" opacity="0.66" startX="-89.75" strokeLineCap="BUTT">
+      <Line endX="385.0" layoutX="108.0" layoutY="357.0" opacity="0.66" startX="-89.75" strokeLineCap="BUTT">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -90,37 +90,37 @@
             <DropShadow color="#00000091" />
          </effect>
       </Line>
-      <TextArea fx:id="schedule" editable="false" layoutX="20.0" layoutY="45.0" prefHeight="88.0" prefWidth="473.0" stylesheets="@../../../../style/style.css" />
-      <Label layoutX="29.0" layoutY="23.0" text="Red vožnje" textFill="#ffda60">
+      <TextArea fx:id="schedule" editable="false" layoutX="20.0" layoutY="38.0" prefHeight="110.0" prefWidth="473.0" stylesheets="@../../../../style/style.css" />
+      <Label layoutX="30.0" layoutY="16.0" text="Red vožnje" textFill="#ffda60">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="28.0" layoutY="135.0" text="Dodaj liniju" textFill="#ffda60">
+      <Label layoutX="29.0" layoutY="159.0" text="Dodaj liniju" textFill="#ffda60">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="time" layoutX="196.0" layoutY="172.0" prefHeight="29.0" prefWidth="153.0" promptText="Očekivano vrijeme" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-text-fill: white;">
+      <TextField fx:id="time" layoutX="199.0" layoutY="190.0" prefHeight="29.0" prefWidth="153.0" promptText="Očekivano vrijeme" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-text-fill: white;">
          <effect>
             <DropShadow />
          </effect></TextField>
-      <Button fx:id="station_btn" layoutX="363.0" layoutY="172.0" mnemonicParsing="false" onAction="#addStation" prefHeight="29.0" prefWidth="95.0" style="-fx-background-color: #ffda60; -fx-background-radius: 100;" text="Dodaj stanicu">
+      <Button fx:id="station_btn" layoutX="366.0" layoutY="190.0" mnemonicParsing="false" onAction="#addStation" prefHeight="29.0" prefWidth="95.0" style="-fx-background-color: #ffda60; -fx-background-radius: 100;" text="Dodaj stanicu">
          <effect>
             <DropShadow color="#00000098" />
          </effect>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TextArea fx:id="line" editable="false" layoutX="29.0" layoutY="214.0" prefHeight="75.0" prefWidth="453.0" promptText="Linija" stylesheets="@../../../../style/style.css" />
-      <Button fx:id="line_btn" layoutX="218.0" layoutY="301.0" mnemonicParsing="false" onAction="#addLine" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #ffda60; -fx-background-radius: 100;" text="Dodaj liniju">
+      <TextArea fx:id="line" editable="false" layoutX="30.0" layoutY="228.0" prefHeight="75.0" prefWidth="453.0" promptText="Linija" stylesheets="@../../../../style/style.css" />
+      <Button fx:id="line_btn" layoutX="216.0" layoutY="317.0" mnemonicParsing="false" onAction="#addLine" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #ffda60; -fx-background-radius: 100;" text="Dodaj liniju">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <effect>
             <DropShadow />
          </effect></Button>
-      <ChoiceBox fx:id="locations" layoutX="32.0" layoutY="173.0" prefHeight="27.0" prefWidth="153.0" style="-fx-background-color: #FFE695; -fx-background-radius: 100; -fx-mark-color: #212121; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-text-fill: white;">
+      <ChoiceBox fx:id="locations" layoutX="35.0" layoutY="191.0" prefHeight="27.0" prefWidth="153.0" style="-fx-background-color: #FFE695; -fx-background-radius: 100; -fx-mark-color: #212121; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-text-fill: white;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -132,15 +132,15 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="lineID" layoutX="35.0" layoutY="396.0" promptText="id linije" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-text-fill: white;" />
-      <Button fx:id="delete_btn" layoutX="228.0" layoutY="395.0" mnemonicParsing="false" onAction="#deleteLine" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #ffda60; -fx-background-radius: 100;" text="Obriši liniju">
+      <TextField fx:id="lineID" layoutX="35.0" layoutY="396.0" prefHeight="29.0" prefWidth="153.0" promptText="id linije" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-text-fill: white;" />
+      <Button fx:id="delete_btn" layoutX="216.0" layoutY="395.0" mnemonicParsing="false" onAction="#deleteLine" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #ffda60; -fx-background-radius: 100;" text="Obriši liniju">
          <effect>
             <DropShadow />
          </effect>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TextField fx:id="lineIDField" layoutX="37.0" layoutY="302.0" prefHeight="29.0" prefWidth="59.0" promptText="Id linije" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-text-fill: white;">
+      <TextField fx:id="lineIDField" layoutX="37.0" layoutY="318.0" prefHeight="29.0" prefWidth="59.0" promptText="Id linije" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-width: 1.5; -fx-text-fill: white;">
          <effect>
             <DropShadow />
          </effect>

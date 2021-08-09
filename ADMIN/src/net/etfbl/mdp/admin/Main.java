@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import net.etfbl.mdp.model.MyLogger;
 
 public class Main extends Application{
 	
@@ -20,6 +21,9 @@ public class Main extends Application{
 	     
 	     primaryStage.getIcons().add(new Image(new FileInputStream(new File("src/images/admin.png" ))));
 	     primaryStage.setScene(new Scene(root, 630, 450));
+	     
+	     MyLogger.setup();
+	     
 	     primaryStage.show();
 	}
 	

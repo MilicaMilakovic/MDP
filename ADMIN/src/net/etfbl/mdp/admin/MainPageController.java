@@ -6,6 +6,7 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
@@ -17,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import net.etfbl.mdp.model.MyLogger;
 
 public class MainPageController implements Initializable {
 	
@@ -58,8 +60,7 @@ public class MainPageController implements Initializable {
 			contentArea.getChildren().setAll(root);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 	}
 	
@@ -72,8 +73,7 @@ public class MainPageController implements Initializable {
 			contentArea.getChildren().setAll(root);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 	}
 	
@@ -86,8 +86,7 @@ public class MainPageController implements Initializable {
 			contentArea.getChildren().setAll(root);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 	}
 	
@@ -101,7 +100,8 @@ public class MainPageController implements Initializable {
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+            MyLogger.log(Level.WARNING,e.getMessage(),e);
 		}
 	}
 	
@@ -139,12 +139,13 @@ public class MainPageController implements Initializable {
 					try {
 						Thread.sleep(500);
 					} catch (Exception e) {
-						e.printStackTrace();
+			            MyLogger.log(Level.WARNING,e.getMessage(),e);
 					}
 				}
 				
 			} catch (IOException e) {				
-				e.printStackTrace();
+				//e.printStackTrace();
+	            MyLogger.log(Level.WARNING,e.getMessage(),e);
 			}
 		}).start();
 	}

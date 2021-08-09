@@ -6,6 +6,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.logging.Level;
 
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.util.Duration;
+import net.etfbl.mdp.model.MyLogger;
 
 public class SendNotificationController {
 	
@@ -44,11 +46,11 @@ public class SendNotificationController {
 				notification.clear();
 				
 			} catch (SocketException e) {				
-				e.printStackTrace();
+				MyLogger.log(Level.WARNING,e.getMessage(),e);
 			} catch (UnknownHostException e) {				
-				e.printStackTrace();
+				MyLogger.log(Level.WARNING,e.getMessage(),e);
 			} catch (IOException e) {				
-				e.printStackTrace();
+				MyLogger.log(Level.WARNING,e.getMessage(),e);
 			}
 			
 			
