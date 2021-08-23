@@ -220,6 +220,7 @@ public class MainPageController implements Initializable {
 						byte[] content = Files.readAllBytes(fileToSend.toPath());
 						MyFile file = new MyFile(fileToSend.getName(), content, user.getUsername(), receiver, service.getPort(receiver));
 						message = gson.toJson(file);
+						sendingFile = false;
 					}
 					
 					
@@ -229,7 +230,8 @@ public class MainPageController implements Initializable {
 					if(((String)in.readObject()).equals("OK")) {
 						Message msg = new Message(user.getUsername(),messageField.getText(),receiver,service.getPort(receiver) );
 						
-						message = gson.toJson(msg);					
+						message = gson.toJson(msg);		
+						sendingFile = false;
 					}
 				}
 				

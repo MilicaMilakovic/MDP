@@ -87,6 +87,8 @@ public class ReportsController implements Initializable {
 			}
 			
 			
+			reportID.clear();
+			
 		} else {
 			TranslateTransition translateTransition = new TranslateTransition(Duration.millis(200));
 			translateTransition.setNode(btn);

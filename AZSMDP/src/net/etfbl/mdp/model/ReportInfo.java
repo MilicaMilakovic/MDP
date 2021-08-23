@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import net.etfbl.mdp.rmi.ReportServer;
+
 public class ReportInfo {
 	
 	private static int serialID;
@@ -17,7 +19,7 @@ public class ReportInfo {
 	
 	public ReportInfo(String fileName, String sender, long size) {
 		super();
-		id = ++serialID;
+		id = ReportServer.reportsDir.listFiles().length/2 + 1;
 		this.fileName = fileName;
 		this.sender = sender;
 		this.size = size;

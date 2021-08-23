@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.GaussianBlur?>
-<?import javafx.scene.effect.PerspectiveTransform?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.etfbl.mdp.zsmdp.main.TrainPassedController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #242526;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="net.etfbl.mdp.zsmdp.main.TrainPassedController">
    <children>
       <ImageView fitHeight="408.0" fitWidth="600.0" layoutX="3.0" layoutY="-3.0" opacity="0.22">
          <image>
@@ -28,47 +27,8 @@
             <GaussianBlur />
          </effect>
       </ImageView>
-      <Rectangle id="rectangle" height="363.0" layoutX="31.0" layoutY="19.0" opacity="0.55" stroke="#3e4042" strokeType="INSIDE" width="538.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="0.3285714285714286" startX="0.3380952380952381" startY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color blue="0.25882354378700256" green="0.250980406999588" red="0.24313725531101227" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color blue="0.3799999952316284" green="0.8553333282470703" opacity="0.3391304314136505" red="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-         <effect>
-            <PerspectiveTransform />
-         </effect>
-      </Rectangle>
-      <TextArea fx:id="schedule" editable="false" layoutX="47.0" layoutY="201.0" prefHeight="166.0" prefWidth="512.0" stylesheets="@../../../../../style/style.css" />
-      <Line endX="437.0" endY="0.5" layoutX="131.0" layoutY="179.0" startX="-100.0" strokeLineCap="BUTT">
-         <stroke>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color blue="0.12941177189350128" green="0.12941177189350128" red="0.12941177189350128" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color blue="0.3764705955982208" green="0.8549019694328308" red="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </stroke>
-      </Line>
-      <Button fx:id="btn" layoutX="273.0" layoutY="106.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="56.0" style="-fx-background-color: #4E4E4E;">
+      <Rectangle id="rectangle" fill="#222324" height="363.0" layoutX="31.0" layoutY="19.0" stroke="#3c3e4000" strokeType="INSIDE" width="538.0" />
+      <Button fx:id="btn" layoutX="141.0" layoutY="146.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="56.0" style="-fx-background-color: #4E4E4E;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="28.0" opacity="0.78" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -83,16 +43,40 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="line" alignment="CENTER" layoutX="226.0" layoutY="63.0" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-image-width: 1.5; -fx-text-fill: white; -fx-background-radius: 100;" />
-      <Label layoutX="273.0" layoutY="34.0" text="Broj linije" textFill="#ffda60">
+      <TextField fx:id="line" alignment="CENTER" layoutX="94.0" layoutY="107.0" style="-fx-background-color: transparent; -fx-border-color: #ffda60; -fx-border-radius: 100; -fx-border-image-width: 1.5; -fx-text-fill: white; -fx-background-radius: 100;" />
+      <Label layoutX="143.0" layoutY="80.0" text="Broj linije" textFill="#ffda60">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="232.0" layoutY="153.0" text="Evidentiraj prolazak voza" textFill="#ffda60">
+      <Label layoutX="98.0" layoutY="193.0" text="Evidentiraj prolazak voza" textFill="#ffda60">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+      <ImageView fitHeight="226.0" fitWidth="266.0" layoutX="293.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../resources/Train.gif" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="schedule" editable="false" layoutX="47.0" layoutY="254.0" prefHeight="113.0" prefWidth="512.0" stylesheets="@../../../../../style/style.css" />
+      <Line endX="437.0" endY="0.5" layoutX="131.0" layoutY="231.0" startX="-100.0" strokeLineCap="BUTT">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.12941177189350128" green="0.12941177189350128" blue="0.12941177189350128" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.8549019694328308" blue="0.3764705955982208" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
    </children>
 </AnchorPane>
