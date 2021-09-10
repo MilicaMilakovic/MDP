@@ -43,7 +43,7 @@ public class ChatServerThread extends Thread {
 			in = new ObjectInputStream(socket.getInputStream());	
 			out = new ObjectOutputStream(socket.getOutputStream());					
 			
-			System.out.println("Pokrenut ChatServerThread ");
+//			System.out.println("Pokrenut ChatServerThread ");
 			
 			type = (String) in.readObject();
 			

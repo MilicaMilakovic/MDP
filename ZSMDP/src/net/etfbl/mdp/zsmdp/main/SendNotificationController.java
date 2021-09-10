@@ -30,7 +30,7 @@ public class SendNotificationController {
 	private InetAddress group;
 	private byte[] buffer;
 	
-	public void sendNotification() {
+	public void sendNotification(){
 		
 		String content = notification.getText();
 		if(content != null && !content.equals(""))

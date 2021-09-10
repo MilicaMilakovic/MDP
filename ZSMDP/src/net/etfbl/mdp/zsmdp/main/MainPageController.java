@@ -21,6 +21,7 @@ import java.nio.file.Files;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Arrays;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 
@@ -88,8 +89,12 @@ public class MainPageController implements Initializable {
 	public Button msgBtn;
 	
 	public static User user;
-	private static final int CHAT_PORT = 8443; 
-	private static final int FILE_PORT = 9998;
+	
+	private static String HOST;
+	private static int CHAT_PORT ; 
+	private static int FILE_PORT ;
+	private static int REGISTRY_NO ;
+	
 	private boolean sendingFile = false;
 	private File fileToSend;
 	
@@ -138,6 +143,16 @@ public class MainPageController implements Initializable {
 			UserService service = locator.getUserService();
 			service.registerLogin(user);
 			user.setPort(service.assignPort());
+			
+			Properties prop = new Properties();
+			prop.load(new FileInputStream(new File("./config.properties")));
+			
+			HOST = prop.getProperty("HOST");
+			CHAT_PORT = Integer.parseInt(prop.getProperty("CHAT_PORT"));
+			FILE_PORT = Integer.parseInt(prop.getProperty("FILE_PORT"));
+			REGISTRY_NO = Integer.parseInt(prop.getProperty("REGISTRY_NO"));
+			
+			System.out.println("Postavljena konfiguracija:" + "CHAT_PORT= " + CHAT_PORT +", FILE_PORT= "+ FILE_PORT+", HOST="+ HOST+", REGISTRY_NO= " + REGISTRY_NO );
 			
 		} catch (Exception e) {			
 			 MyLogger.log(Level.WARNING,e.getMessage(),e);
@@ -196,7 +211,7 @@ public class MainPageController implements Initializable {
 		
 			try {
 				
-				addr = InetAddress.getByName("localhost");
+				addr = InetAddress.getByName(HOST);
 				//Socket socket = new Socket(addr,CHAT_PORT);				
 				
 				SSLSocketFactory sf = (SSLSocketFactory) SSLSocketFactory.getDefault();
@@ -365,8 +380,9 @@ public class MainPageController implements Initializable {
 			try {
 				byte[] fileContent = Files.readAllBytes(fileSelected.toPath());
 				
+				
 				String name = "ReportServer";
-				Registry registry = LocateRegistry.getRegistry(1099);
+				Registry registry = LocateRegistry.getRegistry(REGISTRY_NO);
 				ReportInterface server = (ReportInterface) registry.lookup(name);
 				
 				System.out.println(user.getUsername() + " poslao izvjestaj " + fileSelected.getName() + " na AZSMDP");

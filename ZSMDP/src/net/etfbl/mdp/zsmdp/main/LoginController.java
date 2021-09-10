@@ -80,7 +80,9 @@ public class LoginController implements Initializable {
 		User user = new User(name, Base64.getEncoder().encodeToString(hash), city);		
 		
 		if(service.verify(user))
-			System.out.println("dobar");
+		{
+			//System.out.println("dobar");
+		}
 		else
 		{
 			moveButton(button);

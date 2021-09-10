@@ -39,7 +39,7 @@ public class ChatServer {
 //				System.out.println("ChatServer ceka klijente...");
 //				Socket socket = ss.accept();
 				SSLSocket socket = (SSLSocket) ss.accept();
-				System.out.println("Prihvacen klijent " + socket);
+//				System.out.println("Prihvacen klijent " + socket);
 				
 				new ChatServerThread(socket);
 				
