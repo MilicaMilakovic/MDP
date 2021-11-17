@@ -8,7 +8,7 @@ Network & Distributed Programming | University Project 2021
   - SOAP Web Services - User management
   - RESTful Web Service -  Timetable and train stations management
   - Redis - Storing timetable information
-  - RMI - Distribuited programming - Reports managing
+  - RMI - Distributed programming - Reports managing
   - Serialization
       - JSON
       - XML
